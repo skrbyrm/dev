@@ -11,9 +11,9 @@ This repository includes scripts and configurations for installing Kubernetes an
      └── README.md
 #### 5. Deploy Adminer on Kubernetes cluster
      └── README.md
-#### 7. Designing and Implementing a SQL Server Database on Kubernetes cluster
+#### 6. Designing and Implementing a SQL Server Database on Kubernetes cluster
      └── README.md
-#### 8. Oracle
+#### 7. Oracle
      └── README.md
-#### 9. Web App(React UI) and Web API(Node.js) Deployment on Kubernetes cluster
+#### 8. Web App(React UI) and Web API(Node.js) Deployment on Kubernetes cluster
      └── README.md
