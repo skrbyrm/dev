@@ -1,4 +1,4 @@
-# Kubernetes Installation and App Deployment
+### Kubernetes Installation and App Deployment
 This repository includes scripts and configurations for installing Kubernetes and deploying applications on Kubernetes. 
 
 #### 1. Kubernetes Cluster installation on Google Cloud Compute Engine
