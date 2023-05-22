@@ -1,0 +1,14 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="Postgres-instance-1.pgadmin"
+  DTS:DTSID="{DC1D3FD3-88EF-4A3F-96E8-4BF1C4456205}"
+  DTS:CreationName="ODBC">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectionString="uid=pgadmin;Dsn=Postgres-instance-1;">
+      <DTS:Password
+        DTS:Name="pwd"
+        Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAUVRSxBlQakasShcXb35GdgAAAAACAAAAAAAQZgAAAAEAACAAAADkgj52cfHQgrRUJ8Hli/ZS6qj2TUp2kLdAGByuuAy1ZgAAAAAOgAAAAAIAACAAAACvzPmKVGwqOaJfpXhcLg863u1IjJHM11GBVkrIzAmS8YAAAADhoDk0iUwAr8ylJDboiShmy/tu7H1LPMvfktoCGWbZRT7YuHDAlf7VUXIX0WUInaCbcBAGO4AOfYPFcZwUSDHS+9V/iZOanVazxgi/M0hE27rbrBWCT1NgBhSuWWA8vKZjqsyZUVgm7+str2KL77ROlDBKw+iFqzpzQ4CU+vcM8UAAAABtmOh57iFhFbkcg3zVadhSMjw1crSK9E6/61TRNj5hYt0vMZJ7fZ5NPvYzxxxe/naBYLTJLiUxESoACk+vGuTv</DTS:Password>
+    </DTS:ConnectionManager>
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

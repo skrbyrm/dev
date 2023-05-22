@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="SQL-Edge-instance-2.sa"
+  DTS:DTSID="{410B73E6-A923-4546-BE7E-7F1D47DEF045}"
+  DTS:CreationName="ODBC">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectionString="uid=sa;Dsn=SQL-Edge-instance-2;">
+      <DTS:Password
+        DTS:Name="pwd"
+        Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAUVRSxBlQakasShcXb35GdgAAAAACAAAAAAAQZgAAAAEAACAAAACqGSH4tYHgqwEofvp+1QVHWMlZm71ltR8FTYkJD/It5QAAAAAOgAAAAAIAACAAAAA3jBWMCLAsT+2HVhnQclNHqPqOZVTHb3X31/etlaePZHAAAACE1KCuP8snxKYrO7/LekW0G2xjwAd1BZbJ7DuDTpDtKCfmYQSMWpl2M4tGnxEM2VcyPeQvZp5CmS/NhtTnEoX8STeK2ZcZ+SmCdHuRe8ZLspdyCnpNCAezH8NNPPtenPtq+daMH5lltHEHltqnqWvJQAAAANVhbyN4UQUdYCiMMuZMRp9ZsW7FJEOlRKtbI+n5MuWv73MOFbOeiH+VeugOorU7D0/WZeaLbHJXochNtNaDcRw=</DTS:Password>
+    </DTS:ConnectionManager>
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

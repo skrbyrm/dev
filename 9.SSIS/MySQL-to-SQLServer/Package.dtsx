@@ -1,0 +1,2893 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="5/22/2023 4:09:57 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="KUASAR"
+  DTS:CreatorName="KUASAR\sakir"
+  DTS:DTSID="{A53877A8-D7BE-4593-ACE9-21045B31E760}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5131.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Package"
+  DTS:PackageType="5"
+  DTS:VersionBuild="18"
+  DTS:VersionGUID="{16B637E4-942E-4A44-B31C-58F1D4EEDA77}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Postgres-instance-1.pgadmin 1]"
+      DTS:CreationName="ADO.NET:System.Data.Odbc.OdbcConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+      DTS:DTSID="{0EDB1406-F596-4000-9D68-BDF4162DC563}"
+      DTS:ObjectName="Postgres-instance-1.pgadmin 1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="uid=pgadmin;Dsn=Postgres-instance-1;">
+          <DTS:Password
+            DTS:Name="pwd"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAUVRSxBlQakasShcXb35GdgAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAACCRI/Hl5iHDHml8qm7JH/QtSOJrxrVhT40jm8t2+ODKgAAAAAOgAAAAAIAACAAAAAryKfoh47zjgSSV119yOFyI1lfkycg+exG6Ej+giX/uiAAAACKxccPDj82nY4UfFoDyR/PuoeuDBFjhlwg/EoHXJYDiUAAAAANMfaSK8gleKThQFbB7E4ssw/11oe/CQHQGiuxB9dX2J9HEhZs/AVlyt5rp2VC2mPX0i1kiZuoBrQgLqXvvjjk</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{8D4A0662-A001-4E8D-AABF-98878AB18A39}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="maxDate_cons">
+      <DTS:VariableValue
+        DTS:DataType="7">5/22/2023 7:26:12 PM</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{9A610348-4A5A-43FD-AF9C-63C191510BC2}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="maxDate_firm">
+      <DTS:VariableValue
+        DTS:DataType="7">5/22/2023 7:26:45 PM</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{39449766-37F2-4F2A-8740-5687227F8E29}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="maxDate_user">
+      <DTS:VariableValue
+        DTS:DataType="7">5/22/2023 7:27:01 PM</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Execute SQL Task"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{e20463d9-d551-4681-9bc2-94b26d59b12e}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Execute SQL Task"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{95EAB25E-CC46-4DE8-B5BB-F7F9B86A7B17}"
+          SQLTask:SqlStatementSource="BEGIN&#xA;    SET NOCOUNT ON;&#xA;    EXEC sp_msforeachtable &quot;ALTER TABLE ? NOCHECK CONSTRAINT all&quot;;&#xA;    EXEC proc_data_by_months;&#xA;    EXEC proc_data_by_weeks;&#xA;    EXEC proc_data_by_dates;&#xA;    EXEC proc_data_by_hours;&#xA;    EXEC sp_msforeachtable &quot;ALTER TABLE ? CHECK CONSTRAINT all&quot;;&#xA;END" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Sequence Container"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{f3c1ad69-c28d-4b05-9d93-035f4589dba9}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Sequence Container">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Sequence Container\Consumptions-Data Flow"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{23c57be4-9c61-4135-b286-4382177dde7f}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Consumptions-Data Flow"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\Sequence Container\Consumptions-Data Flow\Conditional Split"
+                  componentClassID="Microsoft.ConditionalSplit"
+                  contactInfo="Conditional Split;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Routes data rows to different outputs depending on the content of the data. Use conditions (SSIS expressions) to specify which rows are routed. For example, separate records that need to be cleaned from those that are ready to be loaded or route only a subset of records."
+                  name="Conditional Split"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\Sequence Container\Consumptions-Data Flow\Conditional Split.Inputs[Conditional Split Input]"
+                      description="Input to the Conditional Split Transformation"
+                      name="Conditional Split Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Sequence Container\Consumptions-Data Flow\Conditional Split.Inputs[Conditional Split Input].Columns[createdAt]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="createdAt"
+                          lineageId="Package\Sequence Container\Consumptions-Data Flow\ODBC Source.Outputs[ODBC Source Output].Columns[createdAt]" />
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Sequence Container\Consumptions-Data Flow\Conditional Split.Outputs[Case 1]"
+                      description="Output 1 of the Conditional Split Transformation"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      exclusionGroup="1"
+                      name="Case 1"
+                      synchronousInputId="Package\Sequence Container\Consumptions-Data Flow\Conditional Split.Inputs[Conditional Split Input]"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                          name="Expression">#{Package\Sequence Container\Consumptions-Data Flow\ODBC Source.Outputs[ODBC Source Output].Columns[createdAt]} &gt; @[User::maxDate_cons]</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Specifies the friendly version of the expression. This expression version uses column names."
+                          expressionType="Notify"
+                          name="FriendlyExpression">createdAt &gt; @[User::maxDate_cons]</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                          name="EvaluationOrder">0</property>
+                      </properties>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Sequence Container\Consumptions-Data Flow\Conditional Split.Outputs[Conditional Split Default Output]"
+                      description="Default Output of the Conditional Split Transformation"
+                      exclusionGroup="1"
+                      name="Conditional Split Default Output"
+                      synchronousInputId="Package\Sequence Container\Consumptions-Data Flow\Conditional Split.Inputs[Conditional Split Input]">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsDefaultOut">true</property>
+                      </properties>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Sequence Container\Consumptions-Data Flow\Conditional Split.Outputs[Conditional Split Error Output]"
+                      description="Error Output of the Conditional Split Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Conditional Split Error Output"
+                      synchronousInputId="Package\Sequence Container\Consumptions-Data Flow\Conditional Split.Inputs[Conditional Split Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\Consumptions-Data Flow\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Consumptions-Data Flow\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Consumptions-Data Flow\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Consumptions-Data Flow\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Sequence Container\Consumptions-Data Flow\ODBC Source"
+                  componentClassID="Microsoft.SSISODBCSrc"
+                  contactInfo="ODBC Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="ODBC Source"
+                  name="ODBC Source"
+                  usesDispositions="true"
+                  version="1">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="The name of the table to be fetched."
+                      expressionType="Notify"
+                      name="TableName">consumptions</property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      expressionType="Notify"
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specify the number of rows fetched per batch."
+                      expressionType="Notify"
+                      name="BatchSize">1000</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Determines the chunk size allocation for LOB columns"
+                      expressionType="Notify"
+                      name="LobChunkSize">32768</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Determines how the component exposes CHAR columns. If False, CHAR columns are exposed as (multi-)byte strings (DT_STR), if True, CHAR columns are exposed as wide strings (DT_WSTR)"
+                      expressionType="Notify"
+                      name="ExposeCharColumnsAsUnicode">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds to wait for an SQL statement to execute before returning to the application."
+                      expressionType="Notify"
+                      name="StatementTimeout">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="The code page to use when code page information is unavailable from the data source."
+                      expressionType="Notify"
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Int32"
+                      description="The method used for fetching data."
+                      expressionType="Notify"
+                      name="FetchMethod">1</property>
+                    <property
+                      dataType="System.Int32"
+                      description="The ODBC C data type for binding numeric data."
+                      expressionType="Notify"
+                      name="BindNumericAs">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Determines how the component would bind columns of (multi)-byte string types (i.e., SQL_CHAR, SQL_VARCHAR, SQL_LONGVARCHAR). The options are: Unicode (SQL_C_WCHAR) and ANSI (SQL_C_CHAR)."
+                      expressionType="Notify"
+                      name="BindCharColumnsAs">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="The mode used to access the database."
+                      expressionType="Notify"
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Sequence Container\Consumptions-Data Flow\ODBC Source.Connections[ODBCConnection]"
+                      connectionManagerID="{4B51C8BB-64FE-469C-9100-655BA04F95A3}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[MySQL-instance-2.root]"
+                      description="The ODBC runtime connection used to access the database."
+                      name="ODBCConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\Sequence Container\Consumptions-Data Flow\ODBC Source.Outputs[ODBC Source Output]"
+                      errorRowDisposition="FailComponent"
+                      name="ODBC Source Output"
+                      truncationRowDisposition="FailComponent">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\Consumptions-Data Flow\ODBC Source.Outputs[ODBC Source Output].Columns[id]"
+                          dataType="i4"
+                          externalMetadataColumnId="Package\Sequence Container\Consumptions-Data Flow\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[id]"
+                          lineageId="Package\Sequence Container\Consumptions-Data Flow\ODBC Source.Outputs[ODBC Source Output].Columns[id]"
+                          name="id" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Consumptions-Data Flow\ODBC Source.Outputs[ODBC Source Output].Columns[date]"
+                          dataType="dbTimeStamp"
+                          externalMetadataColumnId="Package\Sequence Container\Consumptions-Data Flow\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[date]"
+                          lineageId="Package\Sequence Container\Consumptions-Data Flow\ODBC Source.Outputs[ODBC Source Output].Columns[date]"
+                          name="date" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Consumptions-Data Flow\ODBC Source.Outputs[ODBC Source Output].Columns[active]"
+                          dataType="r8"
+                          externalMetadataColumnId="Package\Sequence Container\Consumptions-Data Flow\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[active]"
+                          lineageId="Package\Sequence Container\Consumptions-Data Flow\ODBC Source.Outputs[ODBC Source Output].Columns[active]"
+                          name="active" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Consumptions-Data Flow\ODBC Source.Outputs[ODBC Source Output].Columns[inductive]"
+                          dataType="r8"
+                          externalMetadataColumnId="Package\Sequence Container\Consumptions-Data Flow\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[inductive]"
+                          lineageId="Package\Sequence Container\Consumptions-Data Flow\ODBC Source.Outputs[ODBC Source Output].Columns[inductive]"
+                          name="inductive" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Consumptions-Data Flow\ODBC Source.Outputs[ODBC Source Output].Columns[capacitive]"
+                          dataType="r8"
+                          externalMetadataColumnId="Package\Sequence Container\Consumptions-Data Flow\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[capacitive]"
+                          lineageId="Package\Sequence Container\Consumptions-Data Flow\ODBC Source.Outputs[ODBC Source Output].Columns[capacitive]"
+                          name="capacitive" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Consumptions-Data Flow\ODBC Source.Outputs[ODBC Source Output].Columns[hno]"
+                          dataType="i8"
+                          externalMetadataColumnId="Package\Sequence Container\Consumptions-Data Flow\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[hno]"
+                          lineageId="Package\Sequence Container\Consumptions-Data Flow\ODBC Source.Outputs[ODBC Source Output].Columns[hno]"
+                          name="hno" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Consumptions-Data Flow\ODBC Source.Outputs[ODBC Source Output].Columns[ssno]"
+                          dataType="i8"
+                          externalMetadataColumnId="Package\Sequence Container\Consumptions-Data Flow\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[ssno]"
+                          lineageId="Package\Sequence Container\Consumptions-Data Flow\ODBC Source.Outputs[ODBC Source Output].Columns[ssno]"
+                          name="ssno" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Consumptions-Data Flow\ODBC Source.Outputs[ODBC Source Output].Columns[facility_id]"
+                          dataType="i4"
+                          externalMetadataColumnId="Package\Sequence Container\Consumptions-Data Flow\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[facility_id]"
+                          lineageId="Package\Sequence Container\Consumptions-Data Flow\ODBC Source.Outputs[ODBC Source Output].Columns[facility_id]"
+                          name="facility_id" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Consumptions-Data Flow\ODBC Source.Outputs[ODBC Source Output].Columns[createdAt]"
+                          dataType="dbTimeStamp"
+                          externalMetadataColumnId="Package\Sequence Container\Consumptions-Data Flow\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[createdAt]"
+                          lineageId="Package\Sequence Container\Consumptions-Data Flow\ODBC Source.Outputs[ODBC Source Output].Columns[createdAt]"
+                          name="createdAt" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Consumptions-Data Flow\ODBC Source.Outputs[ODBC Source Output].Columns[updatedAt]"
+                          dataType="dbTimeStamp"
+                          externalMetadataColumnId="Package\Sequence Container\Consumptions-Data Flow\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[updatedAt]"
+                          lineageId="Package\Sequence Container\Consumptions-Data Flow\ODBC Source.Outputs[ODBC Source Output].Columns[updatedAt]"
+                          name="updatedAt" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Consumptions-Data Flow\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[id]"
+                          dataType="i4"
+                          name="id" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Consumptions-Data Flow\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[date]"
+                          dataType="dbTimeStamp"
+                          name="date" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Consumptions-Data Flow\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[active]"
+                          dataType="r8"
+                          name="active" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Consumptions-Data Flow\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[inductive]"
+                          dataType="r8"
+                          name="inductive" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Consumptions-Data Flow\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[capacitive]"
+                          dataType="r8"
+                          name="capacitive" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Consumptions-Data Flow\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[hno]"
+                          dataType="i8"
+                          name="hno" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Consumptions-Data Flow\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[ssno]"
+                          dataType="i8"
+                          name="ssno" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Consumptions-Data Flow\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[facility_id]"
+                          dataType="i4"
+                          name="facility_id" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Consumptions-Data Flow\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[createdAt]"
+                          dataType="dbTimeStamp"
+                          name="createdAt" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Consumptions-Data Flow\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[updatedAt]"
+                          dataType="dbTimeStamp"
+                          name="updatedAt" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\Sequence Container\Consumptions-Data Flow\ODBC Source.Outputs[ODBC Source Error Output]"
+                      isErrorOut="true"
+                      name="ODBC Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\Consumptions-Data Flow\ODBC Source.Outputs[ODBC Source Error Output].Columns[id]"
+                          dataType="i4"
+                          externalMetadataColumnId="Package\Sequence Container\Consumptions-Data Flow\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[id]"
+                          lineageId="Package\Sequence Container\Consumptions-Data Flow\ODBC Source.Outputs[ODBC Source Error Output].Columns[id]"
+                          name="id" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Consumptions-Data Flow\ODBC Source.Outputs[ODBC Source Error Output].Columns[date]"
+                          dataType="dbTimeStamp"
+                          externalMetadataColumnId="Package\Sequence Container\Consumptions-Data Flow\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[date]"
+                          lineageId="Package\Sequence Container\Consumptions-Data Flow\ODBC Source.Outputs[ODBC Source Error Output].Columns[date]"
+                          name="date" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Consumptions-Data Flow\ODBC Source.Outputs[ODBC Source Error Output].Columns[active]"
+                          dataType="r8"
+                          externalMetadataColumnId="Package\Sequence Container\Consumptions-Data Flow\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[active]"
+                          lineageId="Package\Sequence Container\Consumptions-Data Flow\ODBC Source.Outputs[ODBC Source Error Output].Columns[active]"
+                          name="active" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Consumptions-Data Flow\ODBC Source.Outputs[ODBC Source Error Output].Columns[inductive]"
+                          dataType="r8"
+                          externalMetadataColumnId="Package\Sequence Container\Consumptions-Data Flow\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[inductive]"
+                          lineageId="Package\Sequence Container\Consumptions-Data Flow\ODBC Source.Outputs[ODBC Source Error Output].Columns[inductive]"
+                          name="inductive" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Consumptions-Data Flow\ODBC Source.Outputs[ODBC Source Error Output].Columns[capacitive]"
+                          dataType="r8"
+                          externalMetadataColumnId="Package\Sequence Container\Consumptions-Data Flow\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[capacitive]"
+                          lineageId="Package\Sequence Container\Consumptions-Data Flow\ODBC Source.Outputs[ODBC Source Error Output].Columns[capacitive]"
+                          name="capacitive" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Consumptions-Data Flow\ODBC Source.Outputs[ODBC Source Error Output].Columns[hno]"
+                          dataType="i8"
+                          externalMetadataColumnId="Package\Sequence Container\Consumptions-Data Flow\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[hno]"
+                          lineageId="Package\Sequence Container\Consumptions-Data Flow\ODBC Source.Outputs[ODBC Source Error Output].Columns[hno]"
+                          name="hno" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Consumptions-Data Flow\ODBC Source.Outputs[ODBC Source Error Output].Columns[ssno]"
+                          dataType="i8"
+                          externalMetadataColumnId="Package\Sequence Container\Consumptions-Data Flow\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[ssno]"
+                          lineageId="Package\Sequence Container\Consumptions-Data Flow\ODBC Source.Outputs[ODBC Source Error Output].Columns[ssno]"
+                          name="ssno" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Consumptions-Data Flow\ODBC Source.Outputs[ODBC Source Error Output].Columns[facility_id]"
+                          dataType="i4"
+                          externalMetadataColumnId="Package\Sequence Container\Consumptions-Data Flow\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[facility_id]"
+                          lineageId="Package\Sequence Container\Consumptions-Data Flow\ODBC Source.Outputs[ODBC Source Error Output].Columns[facility_id]"
+                          name="facility_id" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Consumptions-Data Flow\ODBC Source.Outputs[ODBC Source Error Output].Columns[createdAt]"
+                          dataType="dbTimeStamp"
+                          externalMetadataColumnId="Package\Sequence Container\Consumptions-Data Flow\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[createdAt]"
+                          lineageId="Package\Sequence Container\Consumptions-Data Flow\ODBC Source.Outputs[ODBC Source Error Output].Columns[createdAt]"
+                          name="createdAt" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Consumptions-Data Flow\ODBC Source.Outputs[ODBC Source Error Output].Columns[updatedAt]"
+                          dataType="dbTimeStamp"
+                          externalMetadataColumnId="Package\Sequence Container\Consumptions-Data Flow\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[updatedAt]"
+                          lineageId="Package\Sequence Container\Consumptions-Data Flow\ODBC Source.Outputs[ODBC Source Error Output].Columns[updatedAt]"
+                          name="updatedAt" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Consumptions-Data Flow\ODBC Source.Outputs[ODBC Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Consumptions-Data Flow\ODBC Source.Outputs[ODBC Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Consumptions-Data Flow\ODBC Source.Outputs[ODBC Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Consumptions-Data Flow\ODBC Source.Outputs[ODBC Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Sequence Container\Consumptions-Data Flow\OLE DB Destination"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="OLE DB Destination"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[consumptions]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Sequence Container\Consumptions-Data Flow\OLE DB Destination.Connections[OleDbConnection]"
+                      connectionManagerID="{95EAB25E-CC46-4DE8-B5BB-F7F9B86A7B17}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[instance-2,31200.cons.sa]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Sequence Container\Consumptions-Data Flow\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Sequence Container\Consumptions-Data Flow\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[id]"
+                          cachedDataType="i4"
+                          cachedName="id"
+                          externalMetadataColumnId="Package\Sequence Container\Consumptions-Data Flow\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[id]"
+                          lineageId="Package\Sequence Container\Consumptions-Data Flow\ODBC Source.Outputs[ODBC Source Output].Columns[id]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Consumptions-Data Flow\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[date]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="date"
+                          externalMetadataColumnId="Package\Sequence Container\Consumptions-Data Flow\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[date]"
+                          lineageId="Package\Sequence Container\Consumptions-Data Flow\ODBC Source.Outputs[ODBC Source Output].Columns[date]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Consumptions-Data Flow\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[active]"
+                          cachedDataType="r8"
+                          cachedName="active"
+                          externalMetadataColumnId="Package\Sequence Container\Consumptions-Data Flow\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[active]"
+                          lineageId="Package\Sequence Container\Consumptions-Data Flow\ODBC Source.Outputs[ODBC Source Output].Columns[active]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Consumptions-Data Flow\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[inductive]"
+                          cachedDataType="r8"
+                          cachedName="inductive"
+                          externalMetadataColumnId="Package\Sequence Container\Consumptions-Data Flow\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[inductive]"
+                          lineageId="Package\Sequence Container\Consumptions-Data Flow\ODBC Source.Outputs[ODBC Source Output].Columns[inductive]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Consumptions-Data Flow\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[capacitive]"
+                          cachedDataType="r8"
+                          cachedName="capacitive"
+                          externalMetadataColumnId="Package\Sequence Container\Consumptions-Data Flow\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[capacitive]"
+                          lineageId="Package\Sequence Container\Consumptions-Data Flow\ODBC Source.Outputs[ODBC Source Output].Columns[capacitive]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Consumptions-Data Flow\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[hno]"
+                          cachedDataType="i8"
+                          cachedName="hno"
+                          externalMetadataColumnId="Package\Sequence Container\Consumptions-Data Flow\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[hno]"
+                          lineageId="Package\Sequence Container\Consumptions-Data Flow\ODBC Source.Outputs[ODBC Source Output].Columns[hno]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Consumptions-Data Flow\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ssno]"
+                          cachedDataType="i8"
+                          cachedName="ssno"
+                          externalMetadataColumnId="Package\Sequence Container\Consumptions-Data Flow\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ssno]"
+                          lineageId="Package\Sequence Container\Consumptions-Data Flow\ODBC Source.Outputs[ODBC Source Output].Columns[ssno]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Consumptions-Data Flow\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[facility_id]"
+                          cachedDataType="i4"
+                          cachedName="facility_id"
+                          externalMetadataColumnId="Package\Sequence Container\Consumptions-Data Flow\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[facility_id]"
+                          lineageId="Package\Sequence Container\Consumptions-Data Flow\ODBC Source.Outputs[ODBC Source Output].Columns[facility_id]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Consumptions-Data Flow\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[createdAt]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="createdAt"
+                          externalMetadataColumnId="Package\Sequence Container\Consumptions-Data Flow\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[createdAt]"
+                          lineageId="Package\Sequence Container\Consumptions-Data Flow\ODBC Source.Outputs[ODBC Source Output].Columns[createdAt]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Consumptions-Data Flow\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[updatedAt]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="updatedAt"
+                          externalMetadataColumnId="Package\Sequence Container\Consumptions-Data Flow\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[updatedAt]"
+                          lineageId="Package\Sequence Container\Consumptions-Data Flow\ODBC Source.Outputs[ODBC Source Output].Columns[updatedAt]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Consumptions-Data Flow\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[id]"
+                          dataType="i4"
+                          name="id" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Consumptions-Data Flow\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[date]"
+                          dataType="dbTimeStamp"
+                          name="date" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Consumptions-Data Flow\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[active]"
+                          dataType="r8"
+                          name="active" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Consumptions-Data Flow\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[inductive]"
+                          dataType="r8"
+                          name="inductive" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Consumptions-Data Flow\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[capacitive]"
+                          dataType="r8"
+                          name="capacitive" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Consumptions-Data Flow\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[hno]"
+                          dataType="i8"
+                          name="hno" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Consumptions-Data Flow\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ssno]"
+                          dataType="i8"
+                          name="ssno" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Consumptions-Data Flow\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[facility_id]"
+                          dataType="i4"
+                          name="facility_id" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Consumptions-Data Flow\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[createdAt]"
+                          dataType="dbTimeStamp"
+                          name="createdAt" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Consumptions-Data Flow\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[updatedAt]"
+                          dataType="dbTimeStamp"
+                          name="updatedAt" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Sequence Container\Consumptions-Data Flow\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\Sequence Container\Consumptions-Data Flow\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\Consumptions-Data Flow\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Consumptions-Data Flow\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Consumptions-Data Flow\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Consumptions-Data Flow\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\Sequence Container\Consumptions-Data Flow.Paths[Case 1]"
+                  endId="Package\Sequence Container\Consumptions-Data Flow\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  name="Case 1"
+                  startId="Package\Sequence Container\Consumptions-Data Flow\Conditional Split.Outputs[Case 1]" />
+                <path
+                  refId="Package\Sequence Container\Consumptions-Data Flow.Paths[ODBC Source Output]"
+                  endId="Package\Sequence Container\Consumptions-Data Flow\Conditional Split.Inputs[Conditional Split Input]"
+                  name="ODBC Source Output"
+                  startId="Package\Sequence Container\Consumptions-Data Flow\ODBC Source.Outputs[ODBC Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Sequence Container\Execute SQL Task"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{a14033b7-ca05-42b2-a9ea-a893f9531e38}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Execute SQL Task"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{95EAB25E-CC46-4DE8-B5BB-F7F9B86A7B17}"
+              SQLTask:SqlStatementSource="SELECT COALESCE(&#xA;    (SELECT MAX(createdAt) FROM consumptions),&#xA;    '1900-01-01') AS Maxdate"
+              SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ResultBinding
+                SQLTask:ResultName="maxDate"
+                SQLTask:DtsVariableName="User::maxDate_cons" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="1"
+                SQLTask:DtsVariableName="User::maxDate_cons"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="7"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Sequence Container\Execute SQL Task 1"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{67c4deee-c45b-464d-b8ce-e8e15e21f087}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Execute SQL Task 1"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{95EAB25E-CC46-4DE8-B5BB-F7F9B86A7B17}"
+              SQLTask:SqlStatementSource="SELECT COALESCE(&#xA;    (SELECT MAX(createdAt) FROM firm_list),&#xA;    '1900-01-01') AS Maxdate"
+              SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ResultBinding
+                SQLTask:ResultName="maxDate"
+                SQLTask:DtsVariableName="User::maxDate_firm" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="1"
+                SQLTask:DtsVariableName="User::maxDate_firm"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="7"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Sequence Container\Execute SQL Task 2"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{f5952f4e-1224-4b73-bf45-bb302fd61d97}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Execute SQL Task 2"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="2">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{95EAB25E-CC46-4DE8-B5BB-F7F9B86A7B17}"
+              SQLTask:SqlStatementSource="SELECT COALESCE(&#xA;    (SELECT MAX(createdAt) FROM users),&#xA;    '1900-01-01') AS Maxdate"
+              SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ResultBinding
+                SQLTask:ResultName="maxDate"
+                SQLTask:DtsVariableName="User::maxDate_user" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="1"
+                SQLTask:DtsVariableName="User::maxDate_user"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="7"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Sequence Container\Firm_list - Data Flow"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{8748b3c0-840f-40f4-b8f7-bc339721a6f5}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Firm_list - Data Flow"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\Sequence Container\Firm_list - Data Flow\Conditional Split 1"
+                  componentClassID="Microsoft.ConditionalSplit"
+                  contactInfo="Conditional Split;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Routes data rows to different outputs depending on the content of the data. Use conditions (SSIS expressions) to specify which rows are routed. For example, separate records that need to be cleaned from those that are ready to be loaded or route only a subset of records."
+                  name="Conditional Split 1"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\Sequence Container\Firm_list - Data Flow\Conditional Split 1.Inputs[Conditional Split Input]"
+                      description="Input to the Conditional Split Transformation"
+                      name="Conditional Split Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Sequence Container\Firm_list - Data Flow\Conditional Split 1.Inputs[Conditional Split Input].Columns[createdAt]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="createdAt"
+                          lineageId="Package\Sequence Container\Firm_list - Data Flow\ODBC Source.Outputs[ODBC Source Output].Columns[createdAt]" />
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Sequence Container\Firm_list - Data Flow\Conditional Split 1.Outputs[Case 1]"
+                      description="Output 1 of the Conditional Split Transformation"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      exclusionGroup="1"
+                      name="Case 1"
+                      synchronousInputId="Package\Sequence Container\Firm_list - Data Flow\Conditional Split 1.Inputs[Conditional Split Input]"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                          name="Expression">#{Package\Sequence Container\Firm_list - Data Flow\ODBC Source.Outputs[ODBC Source Output].Columns[createdAt]} &gt; @[User::maxDate_firm]</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Specifies the friendly version of the expression. This expression version uses column names."
+                          expressionType="Notify"
+                          name="FriendlyExpression">createdAt &gt; @[User::maxDate_firm]</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                          name="EvaluationOrder">0</property>
+                      </properties>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Sequence Container\Firm_list - Data Flow\Conditional Split 1.Outputs[Conditional Split Default Output]"
+                      description="Default Output of the Conditional Split Transformation"
+                      exclusionGroup="1"
+                      name="Conditional Split Default Output"
+                      synchronousInputId="Package\Sequence Container\Firm_list - Data Flow\Conditional Split 1.Inputs[Conditional Split Input]">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsDefaultOut">true</property>
+                      </properties>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Sequence Container\Firm_list - Data Flow\Conditional Split 1.Outputs[Conditional Split Error Output]"
+                      description="Error Output of the Conditional Split Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Conditional Split Error Output"
+                      synchronousInputId="Package\Sequence Container\Firm_list - Data Flow\Conditional Split 1.Inputs[Conditional Split Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\Firm_list - Data Flow\Conditional Split 1.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Firm_list - Data Flow\Conditional Split 1.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Firm_list - Data Flow\Conditional Split 1.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Firm_list - Data Flow\Conditional Split 1.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Sequence Container\Firm_list - Data Flow\Data Conversion"
+                  componentClassID="Microsoft.DataConvert"
+                  contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Data Conversion"
+                  name="Data Conversion"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\Sequence Container\Firm_list - Data Flow\Data Conversion.Inputs[Data Conversion Input]"
+                      name="Data Conversion Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Sequence Container\Firm_list - Data Flow\Data Conversion.Inputs[Data Conversion Input].Columns[city]"
+                          cachedDataType="nText"
+                          cachedName="city"
+                          lineageId="Package\Sequence Container\Firm_list - Data Flow\ODBC Source.Outputs[ODBC Source Output].Columns[city]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Firm_list - Data Flow\Data Conversion.Inputs[Data Conversion Input].Columns[district]"
+                          cachedDataType="nText"
+                          cachedName="district"
+                          lineageId="Package\Sequence Container\Firm_list - Data Flow\ODBC Source.Outputs[ODBC Source Output].Columns[district]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Firm_list - Data Flow\Data Conversion.Inputs[Data Conversion Input].Columns[facility]"
+                          cachedDataType="nText"
+                          cachedName="facility"
+                          lineageId="Package\Sequence Container\Firm_list - Data Flow\ODBC Source.Outputs[ODBC Source Output].Columns[facility]" />
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Sequence Container\Firm_list - Data Flow\Data Conversion.Outputs[Data Conversion Output]"
+                      exclusionGroup="1"
+                      name="Data Conversion Output"
+                      synchronousInputId="Package\Sequence Container\Firm_list - Data Flow\Data Conversion.Inputs[Data Conversion Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\Firm_list - Data Flow\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of city]"
+                          codePage="1252"
+                          dataType="text"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\Sequence Container\Firm_list - Data Flow\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of city]"
+                          name="Copy of city"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Sequence Container\Firm_list - Data Flow\ODBC Source.Outputs[ODBC Source Output].Columns[city]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Sequence Container\Firm_list - Data Flow\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of district]"
+                          codePage="1252"
+                          dataType="text"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\Sequence Container\Firm_list - Data Flow\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of district]"
+                          name="Copy of district"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Sequence Container\Firm_list - Data Flow\ODBC Source.Outputs[ODBC Source Output].Columns[district]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Sequence Container\Firm_list - Data Flow\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of facility]"
+                          codePage="1252"
+                          dataType="text"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\Sequence Container\Firm_list - Data Flow\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of facility]"
+                          name="Copy of facility"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Sequence Container\Firm_list - Data Flow\ODBC Source.Outputs[ODBC Source Output].Columns[facility]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Sequence Container\Firm_list - Data Flow\Data Conversion.Outputs[Data Conversion Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Data Conversion Error Output"
+                      synchronousInputId="Package\Sequence Container\Firm_list - Data Flow\Data Conversion.Inputs[Data Conversion Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\Firm_list - Data Flow\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Firm_list - Data Flow\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Firm_list - Data Flow\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Firm_list - Data Flow\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Sequence Container\Firm_list - Data Flow\ODBC Destination"
+                  componentClassID="Microsoft.SSISODBCDst"
+                  contactInfo="ODBC Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="ODBC Destination"
+                  name="ODBC Destination"
+                  usesDispositions="true"
+                  version="1">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="The name of the table to be fetched."
+                      expressionType="Notify"
+                      name="TableName">"dbo"."firm_list"</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specify the number of rows fetched per batch."
+                      expressionType="Notify"
+                      name="BatchSize">1000</property>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of rows inserted under the same transaction."
+                      expressionType="Notify"
+                      name="TransactionSize">1000</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Determines the chunk size allocation for LOB columns"
+                      expressionType="Notify"
+                      name="LobChunkSize">32768</property>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds to wait for an SQL statement to execute before returning to the application."
+                      expressionType="Notify"
+                      name="StatementTimeout">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="The code page to use when code page information is unavailable from the data source."
+                      expressionType="Notify"
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Int32"
+                      description="The method used for inserting data. Possible values are 'Batch' or 'Row by row'."
+                      expressionType="Notify"
+                      name="InsertMethod">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="The ODBC C data type for binding numeric data."
+                      expressionType="Notify"
+                      name="BindNumericAs">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Determines how the component would bind columns of (multi)-byte string types (i.e., SQL_CHAR, SQL_VARCHAR, SQL_LONGVARCHAR). The options are: Unicode (SQL_C_WCHAR) and ANSI (SQL_C_CHAR)."
+                      expressionType="Notify"
+                      name="BindCharColumnsAs">0</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Sequence Container\Firm_list - Data Flow\ODBC Destination.Connections[ODBCConnection]"
+                      connectionManagerID="{410B73E6-A923-4546-BE7E-7F1D47DEF045}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[SQL-Edge-instance-2.sa]"
+                      description="The ODBC runtime connection used to access the database."
+                      name="ODBCConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Sequence Container\Firm_list - Data Flow\ODBC Destination.Inputs[ODBC Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="ODBC Destination Input"
+                      truncationRowDisposition="FailComponent">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Sequence Container\Firm_list - Data Flow\ODBC Destination.Inputs[ODBC Destination Input].Columns[service_point_number]"
+                          cachedDataType="i8"
+                          cachedName="service_point_number"
+                          externalMetadataColumnId="Package\Sequence Container\Firm_list - Data Flow\ODBC Destination.Inputs[ODBC Destination Input].ExternalColumns[service_point_number]"
+                          lineageId="Package\Sequence Container\Firm_list - Data Flow\ODBC Source.Outputs[ODBC Source Output].Columns[service_point_number]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Firm_list - Data Flow\ODBC Destination.Inputs[ODBC Destination Input].Columns[ssno]"
+                          cachedDataType="i8"
+                          cachedName="ssno"
+                          externalMetadataColumnId="Package\Sequence Container\Firm_list - Data Flow\ODBC Destination.Inputs[ODBC Destination Input].ExternalColumns[ssno]"
+                          lineageId="Package\Sequence Container\Firm_list - Data Flow\ODBC Source.Outputs[ODBC Source Output].Columns[ssno]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Firm_list - Data Flow\ODBC Destination.Inputs[ODBC Destination Input].Columns[meter_id]"
+                          cachedDataType="i8"
+                          cachedName="meter_id"
+                          externalMetadataColumnId="Package\Sequence Container\Firm_list - Data Flow\ODBC Destination.Inputs[ODBC Destination Input].ExternalColumns[meter_id]"
+                          lineageId="Package\Sequence Container\Firm_list - Data Flow\ODBC Source.Outputs[ODBC Source Output].Columns[meter_id]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Firm_list - Data Flow\ODBC Destination.Inputs[ODBC Destination Input].Columns[userId]"
+                          cachedDataType="i4"
+                          cachedName="userId"
+                          externalMetadataColumnId="Package\Sequence Container\Firm_list - Data Flow\ODBC Destination.Inputs[ODBC Destination Input].ExternalColumns[userId]"
+                          lineageId="Package\Sequence Container\Firm_list - Data Flow\ODBC Source.Outputs[ODBC Source Output].Columns[userId]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Firm_list - Data Flow\ODBC Destination.Inputs[ODBC Destination Input].Columns[facility_id]"
+                          cachedDataType="i8"
+                          cachedName="facility_id"
+                          externalMetadataColumnId="Package\Sequence Container\Firm_list - Data Flow\ODBC Destination.Inputs[ODBC Destination Input].ExternalColumns[facility_id]"
+                          lineageId="Package\Sequence Container\Firm_list - Data Flow\ODBC Source.Outputs[ODBC Source Output].Columns[facility_id]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Firm_list - Data Flow\ODBC Destination.Inputs[ODBC Destination Input].Columns[adress_id]"
+                          cachedDataType="i8"
+                          cachedName="adress_id"
+                          externalMetadataColumnId="Package\Sequence Container\Firm_list - Data Flow\ODBC Destination.Inputs[ODBC Destination Input].ExternalColumns[adress_id]"
+                          lineageId="Package\Sequence Container\Firm_list - Data Flow\ODBC Source.Outputs[ODBC Source Output].Columns[adress_id]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Firm_list - Data Flow\ODBC Destination.Inputs[ODBC Destination Input].Columns[os_username]"
+                          cachedDataType="i8"
+                          cachedName="os_username"
+                          externalMetadataColumnId="Package\Sequence Container\Firm_list - Data Flow\ODBC Destination.Inputs[ODBC Destination Input].ExternalColumns[os_username]"
+                          lineageId="Package\Sequence Container\Firm_list - Data Flow\ODBC Source.Outputs[ODBC Source Output].Columns[os_username]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Firm_list - Data Flow\ODBC Destination.Inputs[ODBC Destination Input].Columns[createdAt]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="createdAt"
+                          externalMetadataColumnId="Package\Sequence Container\Firm_list - Data Flow\ODBC Destination.Inputs[ODBC Destination Input].ExternalColumns[createdAt]"
+                          lineageId="Package\Sequence Container\Firm_list - Data Flow\ODBC Source.Outputs[ODBC Source Output].Columns[createdAt]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Firm_list - Data Flow\ODBC Destination.Inputs[ODBC Destination Input].Columns[updatedAt]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="updatedAt"
+                          externalMetadataColumnId="Package\Sequence Container\Firm_list - Data Flow\ODBC Destination.Inputs[ODBC Destination Input].ExternalColumns[updatedAt]"
+                          lineageId="Package\Sequence Container\Firm_list - Data Flow\ODBC Source.Outputs[ODBC Source Output].Columns[updatedAt]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Firm_list - Data Flow\ODBC Destination.Inputs[ODBC Destination Input].Columns[Copy of city]"
+                          cachedCodepage="1252"
+                          cachedDataType="text"
+                          cachedName="Copy of city"
+                          externalMetadataColumnId="Package\Sequence Container\Firm_list - Data Flow\ODBC Destination.Inputs[ODBC Destination Input].ExternalColumns[city]"
+                          lineageId="Package\Sequence Container\Firm_list - Data Flow\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of city]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Firm_list - Data Flow\ODBC Destination.Inputs[ODBC Destination Input].Columns[Copy of district]"
+                          cachedCodepage="1252"
+                          cachedDataType="text"
+                          cachedName="Copy of district"
+                          externalMetadataColumnId="Package\Sequence Container\Firm_list - Data Flow\ODBC Destination.Inputs[ODBC Destination Input].ExternalColumns[district]"
+                          lineageId="Package\Sequence Container\Firm_list - Data Flow\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of district]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Firm_list - Data Flow\ODBC Destination.Inputs[ODBC Destination Input].Columns[Copy of facility]"
+                          cachedCodepage="1252"
+                          cachedDataType="text"
+                          cachedName="Copy of facility"
+                          externalMetadataColumnId="Package\Sequence Container\Firm_list - Data Flow\ODBC Destination.Inputs[ODBC Destination Input].ExternalColumns[facility]"
+                          lineageId="Package\Sequence Container\Firm_list - Data Flow\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of facility]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Firm_list - Data Flow\ODBC Destination.Inputs[ODBC Destination Input].ExternalColumns[service_point_number]"
+                          dataType="i8"
+                          name="service_point_number" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Firm_list - Data Flow\ODBC Destination.Inputs[ODBC Destination Input].ExternalColumns[ssno]"
+                          dataType="i8"
+                          name="ssno" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Firm_list - Data Flow\ODBC Destination.Inputs[ODBC Destination Input].ExternalColumns[city]"
+                          codePage="1252"
+                          dataType="text"
+                          name="city" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Firm_list - Data Flow\ODBC Destination.Inputs[ODBC Destination Input].ExternalColumns[district]"
+                          codePage="1252"
+                          dataType="text"
+                          name="district" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Firm_list - Data Flow\ODBC Destination.Inputs[ODBC Destination Input].ExternalColumns[facility]"
+                          codePage="1252"
+                          dataType="text"
+                          name="facility" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Firm_list - Data Flow\ODBC Destination.Inputs[ODBC Destination Input].ExternalColumns[meter_id]"
+                          dataType="i8"
+                          name="meter_id" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Firm_list - Data Flow\ODBC Destination.Inputs[ODBC Destination Input].ExternalColumns[userId]"
+                          dataType="i4"
+                          name="userId" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Firm_list - Data Flow\ODBC Destination.Inputs[ODBC Destination Input].ExternalColumns[facility_id]"
+                          dataType="i8"
+                          name="facility_id" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Firm_list - Data Flow\ODBC Destination.Inputs[ODBC Destination Input].ExternalColumns[adress_id]"
+                          dataType="i8"
+                          name="adress_id" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Firm_list - Data Flow\ODBC Destination.Inputs[ODBC Destination Input].ExternalColumns[os_username]"
+                          dataType="i8"
+                          name="os_username" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Firm_list - Data Flow\ODBC Destination.Inputs[ODBC Destination Input].ExternalColumns[createdAt]"
+                          dataType="dbTimeStamp"
+                          name="createdAt" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Firm_list - Data Flow\ODBC Destination.Inputs[ODBC Destination Input].ExternalColumns[updatedAt]"
+                          dataType="dbTimeStamp"
+                          name="updatedAt" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Sequence Container\Firm_list - Data Flow\ODBC Destination.Outputs[ODBC Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="ODBC Destination Error Output"
+                      synchronousInputId="Package\Sequence Container\Firm_list - Data Flow\ODBC Destination.Inputs[ODBC Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\Firm_list - Data Flow\ODBC Destination.Outputs[ODBC Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Firm_list - Data Flow\ODBC Destination.Outputs[ODBC Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Firm_list - Data Flow\ODBC Destination.Outputs[ODBC Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Firm_list - Data Flow\ODBC Destination.Outputs[ODBC Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Sequence Container\Firm_list - Data Flow\ODBC Source"
+                  componentClassID="Microsoft.SSISODBCSrc"
+                  contactInfo="ODBC Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="ODBC Source"
+                  name="ODBC Source"
+                  usesDispositions="true"
+                  version="1">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="The name of the table to be fetched."
+                      expressionType="Notify"
+                      name="TableName">firm_list</property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      expressionType="Notify"
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specify the number of rows fetched per batch."
+                      expressionType="Notify"
+                      name="BatchSize">1000</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Determines the chunk size allocation for LOB columns"
+                      expressionType="Notify"
+                      name="LobChunkSize">32768</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Determines how the component exposes CHAR columns. If False, CHAR columns are exposed as (multi-)byte strings (DT_STR), if True, CHAR columns are exposed as wide strings (DT_WSTR)"
+                      expressionType="Notify"
+                      name="ExposeCharColumnsAsUnicode">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds to wait for an SQL statement to execute before returning to the application."
+                      expressionType="Notify"
+                      name="StatementTimeout">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="The code page to use when code page information is unavailable from the data source."
+                      expressionType="Notify"
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Int32"
+                      description="The method used for fetching data."
+                      expressionType="Notify"
+                      name="FetchMethod">1</property>
+                    <property
+                      dataType="System.Int32"
+                      description="The ODBC C data type for binding numeric data."
+                      expressionType="Notify"
+                      name="BindNumericAs">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Determines how the component would bind columns of (multi)-byte string types (i.e., SQL_CHAR, SQL_VARCHAR, SQL_LONGVARCHAR). The options are: Unicode (SQL_C_WCHAR) and ANSI (SQL_C_CHAR)."
+                      expressionType="Notify"
+                      name="BindCharColumnsAs">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="The mode used to access the database."
+                      expressionType="Notify"
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Sequence Container\Firm_list - Data Flow\ODBC Source.Connections[ODBCConnection]"
+                      connectionManagerID="{4B51C8BB-64FE-469C-9100-655BA04F95A3}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[MySQL-instance-2.root]"
+                      description="The ODBC runtime connection used to access the database."
+                      name="ODBCConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\Sequence Container\Firm_list - Data Flow\ODBC Source.Outputs[ODBC Source Output]"
+                      errorRowDisposition="FailComponent"
+                      name="ODBC Source Output"
+                      truncationRowDisposition="FailComponent">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\Firm_list - Data Flow\ODBC Source.Outputs[ODBC Source Output].Columns[service_point_number]"
+                          dataType="i8"
+                          externalMetadataColumnId="Package\Sequence Container\Firm_list - Data Flow\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[service_point_number]"
+                          lineageId="Package\Sequence Container\Firm_list - Data Flow\ODBC Source.Outputs[ODBC Source Output].Columns[service_point_number]"
+                          name="service_point_number" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Firm_list - Data Flow\ODBC Source.Outputs[ODBC Source Output].Columns[ssno]"
+                          dataType="i8"
+                          externalMetadataColumnId="Package\Sequence Container\Firm_list - Data Flow\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[ssno]"
+                          lineageId="Package\Sequence Container\Firm_list - Data Flow\ODBC Source.Outputs[ODBC Source Output].Columns[ssno]"
+                          name="ssno" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Firm_list - Data Flow\ODBC Source.Outputs[ODBC Source Output].Columns[city]"
+                          dataType="nText"
+                          externalMetadataColumnId="Package\Sequence Container\Firm_list - Data Flow\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[city]"
+                          lineageId="Package\Sequence Container\Firm_list - Data Flow\ODBC Source.Outputs[ODBC Source Output].Columns[city]"
+                          name="city" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Firm_list - Data Flow\ODBC Source.Outputs[ODBC Source Output].Columns[district]"
+                          dataType="nText"
+                          externalMetadataColumnId="Package\Sequence Container\Firm_list - Data Flow\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[district]"
+                          lineageId="Package\Sequence Container\Firm_list - Data Flow\ODBC Source.Outputs[ODBC Source Output].Columns[district]"
+                          name="district" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Firm_list - Data Flow\ODBC Source.Outputs[ODBC Source Output].Columns[facility]"
+                          dataType="nText"
+                          externalMetadataColumnId="Package\Sequence Container\Firm_list - Data Flow\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[facility]"
+                          lineageId="Package\Sequence Container\Firm_list - Data Flow\ODBC Source.Outputs[ODBC Source Output].Columns[facility]"
+                          name="facility" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Firm_list - Data Flow\ODBC Source.Outputs[ODBC Source Output].Columns[meter_id]"
+                          dataType="i8"
+                          externalMetadataColumnId="Package\Sequence Container\Firm_list - Data Flow\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[meter_id]"
+                          lineageId="Package\Sequence Container\Firm_list - Data Flow\ODBC Source.Outputs[ODBC Source Output].Columns[meter_id]"
+                          name="meter_id" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Firm_list - Data Flow\ODBC Source.Outputs[ODBC Source Output].Columns[userId]"
+                          dataType="i4"
+                          externalMetadataColumnId="Package\Sequence Container\Firm_list - Data Flow\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[userId]"
+                          lineageId="Package\Sequence Container\Firm_list - Data Flow\ODBC Source.Outputs[ODBC Source Output].Columns[userId]"
+                          name="userId" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Firm_list - Data Flow\ODBC Source.Outputs[ODBC Source Output].Columns[facility_id]"
+                          dataType="i8"
+                          externalMetadataColumnId="Package\Sequence Container\Firm_list - Data Flow\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[facility_id]"
+                          lineageId="Package\Sequence Container\Firm_list - Data Flow\ODBC Source.Outputs[ODBC Source Output].Columns[facility_id]"
+                          name="facility_id" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Firm_list - Data Flow\ODBC Source.Outputs[ODBC Source Output].Columns[adress_id]"
+                          dataType="i8"
+                          externalMetadataColumnId="Package\Sequence Container\Firm_list - Data Flow\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[adress_id]"
+                          lineageId="Package\Sequence Container\Firm_list - Data Flow\ODBC Source.Outputs[ODBC Source Output].Columns[adress_id]"
+                          name="adress_id" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Firm_list - Data Flow\ODBC Source.Outputs[ODBC Source Output].Columns[os_username]"
+                          dataType="i8"
+                          externalMetadataColumnId="Package\Sequence Container\Firm_list - Data Flow\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[os_username]"
+                          lineageId="Package\Sequence Container\Firm_list - Data Flow\ODBC Source.Outputs[ODBC Source Output].Columns[os_username]"
+                          name="os_username" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Firm_list - Data Flow\ODBC Source.Outputs[ODBC Source Output].Columns[createdAt]"
+                          dataType="dbTimeStamp"
+                          externalMetadataColumnId="Package\Sequence Container\Firm_list - Data Flow\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[createdAt]"
+                          lineageId="Package\Sequence Container\Firm_list - Data Flow\ODBC Source.Outputs[ODBC Source Output].Columns[createdAt]"
+                          name="createdAt" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Firm_list - Data Flow\ODBC Source.Outputs[ODBC Source Output].Columns[updatedAt]"
+                          dataType="dbTimeStamp"
+                          externalMetadataColumnId="Package\Sequence Container\Firm_list - Data Flow\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[updatedAt]"
+                          lineageId="Package\Sequence Container\Firm_list - Data Flow\ODBC Source.Outputs[ODBC Source Output].Columns[updatedAt]"
+                          name="updatedAt" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Firm_list - Data Flow\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[service_point_number]"
+                          dataType="i8"
+                          name="service_point_number" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Firm_list - Data Flow\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[ssno]"
+                          dataType="i8"
+                          name="ssno" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Firm_list - Data Flow\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[city]"
+                          dataType="nText"
+                          name="city" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Firm_list - Data Flow\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[district]"
+                          dataType="nText"
+                          name="district" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Firm_list - Data Flow\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[facility]"
+                          dataType="nText"
+                          name="facility" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Firm_list - Data Flow\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[meter_id]"
+                          dataType="i8"
+                          name="meter_id" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Firm_list - Data Flow\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[userId]"
+                          dataType="i4"
+                          name="userId" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Firm_list - Data Flow\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[facility_id]"
+                          dataType="i8"
+                          name="facility_id" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Firm_list - Data Flow\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[adress_id]"
+                          dataType="i8"
+                          name="adress_id" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Firm_list - Data Flow\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[os_username]"
+                          dataType="i8"
+                          name="os_username" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Firm_list - Data Flow\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[createdAt]"
+                          dataType="dbTimeStamp"
+                          name="createdAt" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Firm_list - Data Flow\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[updatedAt]"
+                          dataType="dbTimeStamp"
+                          name="updatedAt" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\Sequence Container\Firm_list - Data Flow\ODBC Source.Outputs[ODBC Source Error Output]"
+                      isErrorOut="true"
+                      name="ODBC Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\Firm_list - Data Flow\ODBC Source.Outputs[ODBC Source Error Output].Columns[service_point_number]"
+                          dataType="i8"
+                          externalMetadataColumnId="Package\Sequence Container\Firm_list - Data Flow\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[service_point_number]"
+                          lineageId="Package\Sequence Container\Firm_list - Data Flow\ODBC Source.Outputs[ODBC Source Error Output].Columns[service_point_number]"
+                          name="service_point_number" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Firm_list - Data Flow\ODBC Source.Outputs[ODBC Source Error Output].Columns[ssno]"
+                          dataType="i8"
+                          externalMetadataColumnId="Package\Sequence Container\Firm_list - Data Flow\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[ssno]"
+                          lineageId="Package\Sequence Container\Firm_list - Data Flow\ODBC Source.Outputs[ODBC Source Error Output].Columns[ssno]"
+                          name="ssno" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Firm_list - Data Flow\ODBC Source.Outputs[ODBC Source Error Output].Columns[city]"
+                          dataType="nText"
+                          externalMetadataColumnId="Package\Sequence Container\Firm_list - Data Flow\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[city]"
+                          lineageId="Package\Sequence Container\Firm_list - Data Flow\ODBC Source.Outputs[ODBC Source Error Output].Columns[city]"
+                          name="city" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Firm_list - Data Flow\ODBC Source.Outputs[ODBC Source Error Output].Columns[district]"
+                          dataType="nText"
+                          externalMetadataColumnId="Package\Sequence Container\Firm_list - Data Flow\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[district]"
+                          lineageId="Package\Sequence Container\Firm_list - Data Flow\ODBC Source.Outputs[ODBC Source Error Output].Columns[district]"
+                          name="district" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Firm_list - Data Flow\ODBC Source.Outputs[ODBC Source Error Output].Columns[facility]"
+                          dataType="nText"
+                          externalMetadataColumnId="Package\Sequence Container\Firm_list - Data Flow\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[facility]"
+                          lineageId="Package\Sequence Container\Firm_list - Data Flow\ODBC Source.Outputs[ODBC Source Error Output].Columns[facility]"
+                          name="facility" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Firm_list - Data Flow\ODBC Source.Outputs[ODBC Source Error Output].Columns[meter_id]"
+                          dataType="i8"
+                          externalMetadataColumnId="Package\Sequence Container\Firm_list - Data Flow\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[meter_id]"
+                          lineageId="Package\Sequence Container\Firm_list - Data Flow\ODBC Source.Outputs[ODBC Source Error Output].Columns[meter_id]"
+                          name="meter_id" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Firm_list - Data Flow\ODBC Source.Outputs[ODBC Source Error Output].Columns[userId]"
+                          dataType="i4"
+                          externalMetadataColumnId="Package\Sequence Container\Firm_list - Data Flow\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[userId]"
+                          lineageId="Package\Sequence Container\Firm_list - Data Flow\ODBC Source.Outputs[ODBC Source Error Output].Columns[userId]"
+                          name="userId" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Firm_list - Data Flow\ODBC Source.Outputs[ODBC Source Error Output].Columns[facility_id]"
+                          dataType="i8"
+                          externalMetadataColumnId="Package\Sequence Container\Firm_list - Data Flow\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[facility_id]"
+                          lineageId="Package\Sequence Container\Firm_list - Data Flow\ODBC Source.Outputs[ODBC Source Error Output].Columns[facility_id]"
+                          name="facility_id" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Firm_list - Data Flow\ODBC Source.Outputs[ODBC Source Error Output].Columns[adress_id]"
+                          dataType="i8"
+                          externalMetadataColumnId="Package\Sequence Container\Firm_list - Data Flow\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[adress_id]"
+                          lineageId="Package\Sequence Container\Firm_list - Data Flow\ODBC Source.Outputs[ODBC Source Error Output].Columns[adress_id]"
+                          name="adress_id" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Firm_list - Data Flow\ODBC Source.Outputs[ODBC Source Error Output].Columns[os_username]"
+                          dataType="i8"
+                          externalMetadataColumnId="Package\Sequence Container\Firm_list - Data Flow\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[os_username]"
+                          lineageId="Package\Sequence Container\Firm_list - Data Flow\ODBC Source.Outputs[ODBC Source Error Output].Columns[os_username]"
+                          name="os_username" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Firm_list - Data Flow\ODBC Source.Outputs[ODBC Source Error Output].Columns[createdAt]"
+                          dataType="dbTimeStamp"
+                          externalMetadataColumnId="Package\Sequence Container\Firm_list - Data Flow\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[createdAt]"
+                          lineageId="Package\Sequence Container\Firm_list - Data Flow\ODBC Source.Outputs[ODBC Source Error Output].Columns[createdAt]"
+                          name="createdAt" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Firm_list - Data Flow\ODBC Source.Outputs[ODBC Source Error Output].Columns[updatedAt]"
+                          dataType="dbTimeStamp"
+                          externalMetadataColumnId="Package\Sequence Container\Firm_list - Data Flow\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[updatedAt]"
+                          lineageId="Package\Sequence Container\Firm_list - Data Flow\ODBC Source.Outputs[ODBC Source Error Output].Columns[updatedAt]"
+                          name="updatedAt" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Firm_list - Data Flow\ODBC Source.Outputs[ODBC Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Firm_list - Data Flow\ODBC Source.Outputs[ODBC Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Firm_list - Data Flow\ODBC Source.Outputs[ODBC Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Firm_list - Data Flow\ODBC Source.Outputs[ODBC Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\Sequence Container\Firm_list - Data Flow.Paths[Case 1]"
+                  endId="Package\Sequence Container\Firm_list - Data Flow\Data Conversion.Inputs[Data Conversion Input]"
+                  name="Case 1"
+                  startId="Package\Sequence Container\Firm_list - Data Flow\Conditional Split 1.Outputs[Case 1]" />
+                <path
+                  refId="Package\Sequence Container\Firm_list - Data Flow.Paths[Data Conversion Output]"
+                  endId="Package\Sequence Container\Firm_list - Data Flow\ODBC Destination.Inputs[ODBC Destination Input]"
+                  name="Data Conversion Output"
+                  startId="Package\Sequence Container\Firm_list - Data Flow\Data Conversion.Outputs[Data Conversion Output]" />
+                <path
+                  refId="Package\Sequence Container\Firm_list - Data Flow.Paths[ODBC Source Output]"
+                  endId="Package\Sequence Container\Firm_list - Data Flow\Conditional Split 1.Inputs[Conditional Split Input]"
+                  name="ODBC Source Output"
+                  startId="Package\Sequence Container\Firm_list - Data Flow\ODBC Source.Outputs[ODBC Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Sequence Container\Users - Data Flow"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{2c28aaf3-3cfc-4d94-8a57-20a846c35dde}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Users - Data Flow"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\Sequence Container\Users - Data Flow\Conditional Split 2"
+                  componentClassID="Microsoft.ConditionalSplit"
+                  contactInfo="Conditional Split;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Routes data rows to different outputs depending on the content of the data. Use conditions (SSIS expressions) to specify which rows are routed. For example, separate records that need to be cleaned from those that are ready to be loaded or route only a subset of records."
+                  name="Conditional Split 2"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\Sequence Container\Users - Data Flow\Conditional Split 2.Inputs[Conditional Split Input]"
+                      description="Input to the Conditional Split Transformation"
+                      name="Conditional Split Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Sequence Container\Users - Data Flow\Conditional Split 2.Inputs[Conditional Split Input].Columns[createdAt]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="createdAt"
+                          lineageId="Package\Sequence Container\Users - Data Flow\ODBC Source.Outputs[ODBC Source Output].Columns[createdAt]" />
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Sequence Container\Users - Data Flow\Conditional Split 2.Outputs[Case 1]"
+                      description="Output 1 of the Conditional Split Transformation"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      exclusionGroup="1"
+                      name="Case 1"
+                      synchronousInputId="Package\Sequence Container\Users - Data Flow\Conditional Split 2.Inputs[Conditional Split Input]"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                          name="Expression">#{Package\Sequence Container\Users - Data Flow\ODBC Source.Outputs[ODBC Source Output].Columns[createdAt]} &gt; @[User::maxDate_user]</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Specifies the friendly version of the expression. This expression version uses column names."
+                          expressionType="Notify"
+                          name="FriendlyExpression">createdAt &gt; @[User::maxDate_user]</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                          name="EvaluationOrder">0</property>
+                      </properties>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Sequence Container\Users - Data Flow\Conditional Split 2.Outputs[Conditional Split Default Output]"
+                      description="Default Output of the Conditional Split Transformation"
+                      exclusionGroup="1"
+                      name="Conditional Split Default Output"
+                      synchronousInputId="Package\Sequence Container\Users - Data Flow\Conditional Split 2.Inputs[Conditional Split Input]">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsDefaultOut">true</property>
+                      </properties>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Sequence Container\Users - Data Flow\Conditional Split 2.Outputs[Conditional Split Error Output]"
+                      description="Error Output of the Conditional Split Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Conditional Split Error Output"
+                      synchronousInputId="Package\Sequence Container\Users - Data Flow\Conditional Split 2.Inputs[Conditional Split Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\Users - Data Flow\Conditional Split 2.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Users - Data Flow\Conditional Split 2.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Users - Data Flow\Conditional Split 2.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Users - Data Flow\Conditional Split 2.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Sequence Container\Users - Data Flow\Data Conversion 1"
+                  componentClassID="Microsoft.DataConvert"
+                  contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Data Conversion"
+                  name="Data Conversion 1"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\Sequence Container\Users - Data Flow\Data Conversion 1.Inputs[Data Conversion Input]"
+                      name="Data Conversion Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Sequence Container\Users - Data Flow\Data Conversion 1.Inputs[Data Conversion Input].Columns[uuid]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="uuid"
+                          lineageId="Package\Sequence Container\Users - Data Flow\ODBC Source.Outputs[ODBC Source Output].Columns[uuid]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Users - Data Flow\Data Conversion 1.Inputs[Data Conversion Input].Columns[name]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="name"
+                          lineageId="Package\Sequence Container\Users - Data Flow\ODBC Source.Outputs[ODBC Source Output].Columns[name]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Users - Data Flow\Data Conversion 1.Inputs[Data Conversion Input].Columns[email]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="email"
+                          lineageId="Package\Sequence Container\Users - Data Flow\ODBC Source.Outputs[ODBC Source Output].Columns[email]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Users - Data Flow\Data Conversion 1.Inputs[Data Conversion Input].Columns[role]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="role"
+                          lineageId="Package\Sequence Container\Users - Data Flow\ODBC Source.Outputs[ODBC Source Output].Columns[role]" />
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Sequence Container\Users - Data Flow\Data Conversion 1.Outputs[Data Conversion Output]"
+                      exclusionGroup="1"
+                      name="Data Conversion Output"
+                      synchronousInputId="Package\Sequence Container\Users - Data Flow\Data Conversion 1.Inputs[Data Conversion Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\Users - Data Flow\Data Conversion 1.Outputs[Data Conversion Output].Columns[Copy of uuid]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="50"
+                          lineageId="Package\Sequence Container\Users - Data Flow\Data Conversion 1.Outputs[Data Conversion Output].Columns[Copy of uuid]"
+                          name="Copy of uuid"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Sequence Container\Users - Data Flow\ODBC Source.Outputs[ODBC Source Output].Columns[uuid]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Sequence Container\Users - Data Flow\Data Conversion 1.Outputs[Data Conversion Output].Columns[Copy of name]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="50"
+                          lineageId="Package\Sequence Container\Users - Data Flow\Data Conversion 1.Outputs[Data Conversion Output].Columns[Copy of name]"
+                          name="Copy of name"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Sequence Container\Users - Data Flow\ODBC Source.Outputs[ODBC Source Output].Columns[name]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Sequence Container\Users - Data Flow\Data Conversion 1.Outputs[Data Conversion Output].Columns[Copy of email]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="50"
+                          lineageId="Package\Sequence Container\Users - Data Flow\Data Conversion 1.Outputs[Data Conversion Output].Columns[Copy of email]"
+                          name="Copy of email"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Sequence Container\Users - Data Flow\ODBC Source.Outputs[ODBC Source Output].Columns[email]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Sequence Container\Users - Data Flow\Data Conversion 1.Outputs[Data Conversion Output].Columns[Copy of role]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="50"
+                          lineageId="Package\Sequence Container\Users - Data Flow\Data Conversion 1.Outputs[Data Conversion Output].Columns[Copy of role]"
+                          name="Copy of role"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Sequence Container\Users - Data Flow\ODBC Source.Outputs[ODBC Source Output].Columns[role]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Sequence Container\Users - Data Flow\Data Conversion 1.Outputs[Data Conversion Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Data Conversion Error Output"
+                      synchronousInputId="Package\Sequence Container\Users - Data Flow\Data Conversion 1.Inputs[Data Conversion Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\Users - Data Flow\Data Conversion 1.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Users - Data Flow\Data Conversion 1.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Users - Data Flow\Data Conversion 1.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Users - Data Flow\Data Conversion 1.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Sequence Container\Users - Data Flow\ODBC Destination"
+                  componentClassID="Microsoft.SSISODBCDst"
+                  contactInfo="ODBC Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="ODBC Destination"
+                  name="ODBC Destination"
+                  usesDispositions="true"
+                  version="1">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="The name of the table to be fetched."
+                      expressionType="Notify"
+                      name="TableName">"dbo"."users"</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specify the number of rows fetched per batch."
+                      expressionType="Notify"
+                      name="BatchSize">1000</property>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of rows inserted under the same transaction."
+                      expressionType="Notify"
+                      name="TransactionSize">1000</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Determines the chunk size allocation for LOB columns"
+                      expressionType="Notify"
+                      name="LobChunkSize">32768</property>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds to wait for an SQL statement to execute before returning to the application."
+                      expressionType="Notify"
+                      name="StatementTimeout">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="The code page to use when code page information is unavailable from the data source."
+                      expressionType="Notify"
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Int32"
+                      description="The method used for inserting data. Possible values are 'Batch' or 'Row by row'."
+                      expressionType="Notify"
+                      name="InsertMethod">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="The ODBC C data type for binding numeric data."
+                      expressionType="Notify"
+                      name="BindNumericAs">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Determines how the component would bind columns of (multi)-byte string types (i.e., SQL_CHAR, SQL_VARCHAR, SQL_LONGVARCHAR). The options are: Unicode (SQL_C_WCHAR) and ANSI (SQL_C_CHAR)."
+                      expressionType="Notify"
+                      name="BindCharColumnsAs">0</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Sequence Container\Users - Data Flow\ODBC Destination.Connections[ODBCConnection]"
+                      connectionManagerID="{410B73E6-A923-4546-BE7E-7F1D47DEF045}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[SQL-Edge-instance-2.sa]"
+                      description="The ODBC runtime connection used to access the database."
+                      name="ODBCConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Sequence Container\Users - Data Flow\ODBC Destination.Inputs[ODBC Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="ODBC Destination Input"
+                      truncationRowDisposition="FailComponent">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Sequence Container\Users - Data Flow\ODBC Destination.Inputs[ODBC Destination Input].Columns[id]"
+                          cachedDataType="i4"
+                          cachedName="id"
+                          externalMetadataColumnId="Package\Sequence Container\Users - Data Flow\ODBC Destination.Inputs[ODBC Destination Input].ExternalColumns[id]"
+                          lineageId="Package\Sequence Container\Users - Data Flow\ODBC Source.Outputs[ODBC Source Output].Columns[id]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Users - Data Flow\ODBC Destination.Inputs[ODBC Destination Input].Columns[uuid]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="uuid"
+                          externalMetadataColumnId="Package\Sequence Container\Users - Data Flow\ODBC Destination.Inputs[ODBC Destination Input].ExternalColumns[uuid]"
+                          lineageId="Package\Sequence Container\Users - Data Flow\ODBC Source.Outputs[ODBC Source Output].Columns[uuid]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Users - Data Flow\ODBC Destination.Inputs[ODBC Destination Input].Columns[name]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="name"
+                          externalMetadataColumnId="Package\Sequence Container\Users - Data Flow\ODBC Destination.Inputs[ODBC Destination Input].ExternalColumns[name]"
+                          lineageId="Package\Sequence Container\Users - Data Flow\ODBC Source.Outputs[ODBC Source Output].Columns[name]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Users - Data Flow\ODBC Destination.Inputs[ODBC Destination Input].Columns[email]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="email"
+                          externalMetadataColumnId="Package\Sequence Container\Users - Data Flow\ODBC Destination.Inputs[ODBC Destination Input].ExternalColumns[email]"
+                          lineageId="Package\Sequence Container\Users - Data Flow\ODBC Source.Outputs[ODBC Source Output].Columns[email]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Users - Data Flow\ODBC Destination.Inputs[ODBC Destination Input].Columns[password]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="password"
+                          externalMetadataColumnId="Package\Sequence Container\Users - Data Flow\ODBC Destination.Inputs[ODBC Destination Input].ExternalColumns[password]"
+                          lineageId="Package\Sequence Container\Users - Data Flow\ODBC Source.Outputs[ODBC Source Output].Columns[password]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Users - Data Flow\ODBC Destination.Inputs[ODBC Destination Input].Columns[role]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="role"
+                          externalMetadataColumnId="Package\Sequence Container\Users - Data Flow\ODBC Destination.Inputs[ODBC Destination Input].ExternalColumns[role]"
+                          lineageId="Package\Sequence Container\Users - Data Flow\ODBC Source.Outputs[ODBC Source Output].Columns[role]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Users - Data Flow\ODBC Destination.Inputs[ODBC Destination Input].Columns[createdAt]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="createdAt"
+                          externalMetadataColumnId="Package\Sequence Container\Users - Data Flow\ODBC Destination.Inputs[ODBC Destination Input].ExternalColumns[createdAt]"
+                          lineageId="Package\Sequence Container\Users - Data Flow\ODBC Source.Outputs[ODBC Source Output].Columns[createdAt]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Users - Data Flow\ODBC Destination.Inputs[ODBC Destination Input].Columns[updatedAt]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="updatedAt"
+                          externalMetadataColumnId="Package\Sequence Container\Users - Data Flow\ODBC Destination.Inputs[ODBC Destination Input].ExternalColumns[updatedAt]"
+                          lineageId="Package\Sequence Container\Users - Data Flow\ODBC Source.Outputs[ODBC Source Output].Columns[updatedAt]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Users - Data Flow\ODBC Destination.Inputs[ODBC Destination Input].ExternalColumns[id]"
+                          dataType="i4"
+                          name="id" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Users - Data Flow\ODBC Destination.Inputs[ODBC Destination Input].ExternalColumns[uuid]"
+                          codePage="1252"
+                          dataType="str"
+                          length="255"
+                          name="uuid" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Users - Data Flow\ODBC Destination.Inputs[ODBC Destination Input].ExternalColumns[name]"
+                          codePage="1252"
+                          dataType="str"
+                          length="255"
+                          name="name" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Users - Data Flow\ODBC Destination.Inputs[ODBC Destination Input].ExternalColumns[email]"
+                          codePage="1252"
+                          dataType="str"
+                          length="255"
+                          name="email" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Users - Data Flow\ODBC Destination.Inputs[ODBC Destination Input].ExternalColumns[password]"
+                          codePage="1252"
+                          dataType="str"
+                          length="255"
+                          name="password" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Users - Data Flow\ODBC Destination.Inputs[ODBC Destination Input].ExternalColumns[role]"
+                          codePage="1252"
+                          dataType="str"
+                          length="255"
+                          name="role" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Users - Data Flow\ODBC Destination.Inputs[ODBC Destination Input].ExternalColumns[createdAt]"
+                          dataType="dbTimeStamp"
+                          name="createdAt" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Users - Data Flow\ODBC Destination.Inputs[ODBC Destination Input].ExternalColumns[updatedAt]"
+                          dataType="dbTimeStamp"
+                          name="updatedAt" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Sequence Container\Users - Data Flow\ODBC Destination.Outputs[ODBC Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="ODBC Destination Error Output"
+                      synchronousInputId="Package\Sequence Container\Users - Data Flow\ODBC Destination.Inputs[ODBC Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\Users - Data Flow\ODBC Destination.Outputs[ODBC Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Users - Data Flow\ODBC Destination.Outputs[ODBC Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Users - Data Flow\ODBC Destination.Outputs[ODBC Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Users - Data Flow\ODBC Destination.Outputs[ODBC Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Sequence Container\Users - Data Flow\ODBC Source"
+                  componentClassID="Microsoft.SSISODBCSrc"
+                  contactInfo="ODBC Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="ODBC Source"
+                  name="ODBC Source"
+                  usesDispositions="true"
+                  version="1">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="The name of the table to be fetched."
+                      expressionType="Notify"
+                      name="TableName">users</property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      expressionType="Notify"
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specify the number of rows fetched per batch."
+                      expressionType="Notify"
+                      name="BatchSize">1000</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Determines the chunk size allocation for LOB columns"
+                      expressionType="Notify"
+                      name="LobChunkSize">32768</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Determines how the component exposes CHAR columns. If False, CHAR columns are exposed as (multi-)byte strings (DT_STR), if True, CHAR columns are exposed as wide strings (DT_WSTR)"
+                      expressionType="Notify"
+                      name="ExposeCharColumnsAsUnicode">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds to wait for an SQL statement to execute before returning to the application."
+                      expressionType="Notify"
+                      name="StatementTimeout">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="The code page to use when code page information is unavailable from the data source."
+                      expressionType="Notify"
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Int32"
+                      description="The method used for fetching data."
+                      expressionType="Notify"
+                      name="FetchMethod">1</property>
+                    <property
+                      dataType="System.Int32"
+                      description="The ODBC C data type for binding numeric data."
+                      expressionType="Notify"
+                      name="BindNumericAs">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Determines how the component would bind columns of (multi)-byte string types (i.e., SQL_CHAR, SQL_VARCHAR, SQL_LONGVARCHAR). The options are: Unicode (SQL_C_WCHAR) and ANSI (SQL_C_CHAR)."
+                      expressionType="Notify"
+                      name="BindCharColumnsAs">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="The mode used to access the database."
+                      expressionType="Notify"
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Sequence Container\Users - Data Flow\ODBC Source.Connections[ODBCConnection]"
+                      connectionManagerID="{4B51C8BB-64FE-469C-9100-655BA04F95A3}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[MySQL-instance-2.root]"
+                      description="The ODBC runtime connection used to access the database."
+                      name="ODBCConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\Sequence Container\Users - Data Flow\ODBC Source.Outputs[ODBC Source Output]"
+                      errorRowDisposition="FailComponent"
+                      name="ODBC Source Output"
+                      truncationRowDisposition="FailComponent">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\Users - Data Flow\ODBC Source.Outputs[ODBC Source Output].Columns[id]"
+                          dataType="i4"
+                          externalMetadataColumnId="Package\Sequence Container\Users - Data Flow\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[id]"
+                          lineageId="Package\Sequence Container\Users - Data Flow\ODBC Source.Outputs[ODBC Source Output].Columns[id]"
+                          name="id" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Users - Data Flow\ODBC Source.Outputs[ODBC Source Output].Columns[uuid]"
+                          dataType="wstr"
+                          externalMetadataColumnId="Package\Sequence Container\Users - Data Flow\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[uuid]"
+                          length="255"
+                          lineageId="Package\Sequence Container\Users - Data Flow\ODBC Source.Outputs[ODBC Source Output].Columns[uuid]"
+                          name="uuid" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Users - Data Flow\ODBC Source.Outputs[ODBC Source Output].Columns[name]"
+                          dataType="wstr"
+                          externalMetadataColumnId="Package\Sequence Container\Users - Data Flow\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[name]"
+                          length="255"
+                          lineageId="Package\Sequence Container\Users - Data Flow\ODBC Source.Outputs[ODBC Source Output].Columns[name]"
+                          name="name" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Users - Data Flow\ODBC Source.Outputs[ODBC Source Output].Columns[email]"
+                          dataType="wstr"
+                          externalMetadataColumnId="Package\Sequence Container\Users - Data Flow\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[email]"
+                          length="255"
+                          lineageId="Package\Sequence Container\Users - Data Flow\ODBC Source.Outputs[ODBC Source Output].Columns[email]"
+                          name="email" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Users - Data Flow\ODBC Source.Outputs[ODBC Source Output].Columns[password]"
+                          dataType="wstr"
+                          externalMetadataColumnId="Package\Sequence Container\Users - Data Flow\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[password]"
+                          length="255"
+                          lineageId="Package\Sequence Container\Users - Data Flow\ODBC Source.Outputs[ODBC Source Output].Columns[password]"
+                          name="password" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Users - Data Flow\ODBC Source.Outputs[ODBC Source Output].Columns[role]"
+                          dataType="wstr"
+                          externalMetadataColumnId="Package\Sequence Container\Users - Data Flow\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[role]"
+                          length="255"
+                          lineageId="Package\Sequence Container\Users - Data Flow\ODBC Source.Outputs[ODBC Source Output].Columns[role]"
+                          name="role" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Users - Data Flow\ODBC Source.Outputs[ODBC Source Output].Columns[createdAt]"
+                          dataType="dbTimeStamp"
+                          externalMetadataColumnId="Package\Sequence Container\Users - Data Flow\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[createdAt]"
+                          lineageId="Package\Sequence Container\Users - Data Flow\ODBC Source.Outputs[ODBC Source Output].Columns[createdAt]"
+                          name="createdAt" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Users - Data Flow\ODBC Source.Outputs[ODBC Source Output].Columns[updatedAt]"
+                          dataType="dbTimeStamp"
+                          externalMetadataColumnId="Package\Sequence Container\Users - Data Flow\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[updatedAt]"
+                          lineageId="Package\Sequence Container\Users - Data Flow\ODBC Source.Outputs[ODBC Source Output].Columns[updatedAt]"
+                          name="updatedAt" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Users - Data Flow\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[id]"
+                          dataType="i4"
+                          name="id" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Users - Data Flow\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[uuid]"
+                          dataType="wstr"
+                          length="255"
+                          name="uuid" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Users - Data Flow\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[name]"
+                          dataType="wstr"
+                          length="255"
+                          name="name" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Users - Data Flow\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[email]"
+                          dataType="wstr"
+                          length="255"
+                          name="email" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Users - Data Flow\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[password]"
+                          dataType="wstr"
+                          length="255"
+                          name="password" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Users - Data Flow\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[role]"
+                          dataType="wstr"
+                          length="255"
+                          name="role" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Users - Data Flow\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[createdAt]"
+                          dataType="dbTimeStamp"
+                          name="createdAt" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Users - Data Flow\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[updatedAt]"
+                          dataType="dbTimeStamp"
+                          name="updatedAt" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\Sequence Container\Users - Data Flow\ODBC Source.Outputs[ODBC Source Error Output]"
+                      isErrorOut="true"
+                      name="ODBC Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\Users - Data Flow\ODBC Source.Outputs[ODBC Source Error Output].Columns[id]"
+                          dataType="i4"
+                          externalMetadataColumnId="Package\Sequence Container\Users - Data Flow\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[id]"
+                          lineageId="Package\Sequence Container\Users - Data Flow\ODBC Source.Outputs[ODBC Source Error Output].Columns[id]"
+                          name="id" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Users - Data Flow\ODBC Source.Outputs[ODBC Source Error Output].Columns[uuid]"
+                          dataType="wstr"
+                          externalMetadataColumnId="Package\Sequence Container\Users - Data Flow\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[uuid]"
+                          length="255"
+                          lineageId="Package\Sequence Container\Users - Data Flow\ODBC Source.Outputs[ODBC Source Error Output].Columns[uuid]"
+                          name="uuid" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Users - Data Flow\ODBC Source.Outputs[ODBC Source Error Output].Columns[name]"
+                          dataType="wstr"
+                          externalMetadataColumnId="Package\Sequence Container\Users - Data Flow\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[name]"
+                          length="255"
+                          lineageId="Package\Sequence Container\Users - Data Flow\ODBC Source.Outputs[ODBC Source Error Output].Columns[name]"
+                          name="name" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Users - Data Flow\ODBC Source.Outputs[ODBC Source Error Output].Columns[email]"
+                          dataType="wstr"
+                          externalMetadataColumnId="Package\Sequence Container\Users - Data Flow\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[email]"
+                          length="255"
+                          lineageId="Package\Sequence Container\Users - Data Flow\ODBC Source.Outputs[ODBC Source Error Output].Columns[email]"
+                          name="email" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Users - Data Flow\ODBC Source.Outputs[ODBC Source Error Output].Columns[password]"
+                          dataType="wstr"
+                          externalMetadataColumnId="Package\Sequence Container\Users - Data Flow\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[password]"
+                          length="255"
+                          lineageId="Package\Sequence Container\Users - Data Flow\ODBC Source.Outputs[ODBC Source Error Output].Columns[password]"
+                          name="password" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Users - Data Flow\ODBC Source.Outputs[ODBC Source Error Output].Columns[role]"
+                          dataType="wstr"
+                          externalMetadataColumnId="Package\Sequence Container\Users - Data Flow\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[role]"
+                          length="255"
+                          lineageId="Package\Sequence Container\Users - Data Flow\ODBC Source.Outputs[ODBC Source Error Output].Columns[role]"
+                          name="role" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Users - Data Flow\ODBC Source.Outputs[ODBC Source Error Output].Columns[createdAt]"
+                          dataType="dbTimeStamp"
+                          externalMetadataColumnId="Package\Sequence Container\Users - Data Flow\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[createdAt]"
+                          lineageId="Package\Sequence Container\Users - Data Flow\ODBC Source.Outputs[ODBC Source Error Output].Columns[createdAt]"
+                          name="createdAt" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Users - Data Flow\ODBC Source.Outputs[ODBC Source Error Output].Columns[updatedAt]"
+                          dataType="dbTimeStamp"
+                          externalMetadataColumnId="Package\Sequence Container\Users - Data Flow\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[updatedAt]"
+                          lineageId="Package\Sequence Container\Users - Data Flow\ODBC Source.Outputs[ODBC Source Error Output].Columns[updatedAt]"
+                          name="updatedAt" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Users - Data Flow\ODBC Source.Outputs[ODBC Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Users - Data Flow\ODBC Source.Outputs[ODBC Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Users - Data Flow\ODBC Source.Outputs[ODBC Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Users - Data Flow\ODBC Source.Outputs[ODBC Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\Sequence Container\Users - Data Flow.Paths[Case 1]"
+                  endId="Package\Sequence Container\Users - Data Flow\Data Conversion 1.Inputs[Data Conversion Input]"
+                  name="Case 1"
+                  startId="Package\Sequence Container\Users - Data Flow\Conditional Split 2.Outputs[Case 1]" />
+                <path
+                  refId="Package\Sequence Container\Users - Data Flow.Paths[Data Conversion Output]"
+                  endId="Package\Sequence Container\Users - Data Flow\ODBC Destination.Inputs[ODBC Destination Input]"
+                  name="Data Conversion Output"
+                  startId="Package\Sequence Container\Users - Data Flow\Data Conversion 1.Outputs[Data Conversion Output]" />
+                <path
+                  refId="Package\Sequence Container\Users - Data Flow.Paths[ODBC Source Output]"
+                  endId="Package\Sequence Container\Users - Data Flow\Conditional Split 2.Inputs[Conditional Split Input]"
+                  name="ODBC Source Output"
+                  startId="Package\Sequence Container\Users - Data Flow\ODBC Source.Outputs[ODBC Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Sequence Container.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{684c18dd-120e-447e-8593-07ca89fc7ddf}"
+          DTS:From="Package\Sequence Container\Execute SQL Task"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\Sequence Container\Consumptions-Data Flow" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Sequence Container.PrecedenceConstraints[Constraint 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{c0268416-7a36-407a-887b-54dfcf7ec75a}"
+          DTS:From="Package\Sequence Container\Execute SQL Task 1"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 1"
+          DTS:To="Package\Sequence Container\Firm_list - Data Flow" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Sequence Container.PrecedenceConstraints[Constraint 2]"
+          DTS:CreationName=""
+          DTS:DTSID="{371274c4-44a1-44dc-88a9-ca448870749d}"
+          DTS:From="Package\Sequence Container\Execute SQL Task 2"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 2"
+          DTS:To="Package\Sequence Container\Users - Data Flow" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{aeb131af-b3b6-4583-8677-dbbf7ddd8c88}"
+      DTS:From="Package\Sequence Container"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Execute SQL Task" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="170,42"
+          Id="Package\Execute SQL Task"
+          TopLeft="408,332" />
+        <NodeLayout
+          Size="202,42"
+          Id="Package\Sequence Container\Consumptions-Data Flow"
+          TopLeft="10.5,117" />
+        <NodeLayout
+          Size="167,42"
+          Id="Package\Sequence Container\Users - Data Flow"
+          TopLeft="496.5,114" />
+        <NodeLayout
+          Size="170,42"
+          Id="Package\Sequence Container\Execute SQL Task"
+          TopLeft="5.5,23" />
+        <NodeLayout
+          Size="170,42"
+          Id="Package\Sequence Container\Execute SQL Task 2"
+          TopLeft="494.5,22" />
+        <EdgeLayout
+          Id="Package\Sequence Container.PrecedenceConstraints[Constraint]"
+          TopLeft="90.5,65">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="21,52"
+              Start="0,0"
+              End="21,44.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,22"
+                    Point2="0,26"
+                    Point3="4,26" />
+                  <mssgle:LineSegment
+                    End="17,26" />
+                  <mssgle:CubicBezierSegment
+                    Point1="17,26"
+                    Point2="21,26"
+                    Point3="21,30" />
+                  <mssgle:LineSegment
+                    End="21,44.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Sequence Container.PrecedenceConstraints[Constraint 2]"
+          TopLeft="579.75,64">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,50"
+              Start="0,0"
+              End="0,42.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,42.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="180,42"
+          Id="Package\Sequence Container\Firm_list - Data Flow"
+          TopLeft="264.5,117" />
+        <EdgeLayout
+          Id="Package\Sequence Container.PrecedenceConstraints[Constraint 1]"
+          TopLeft="353.75,65">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,52"
+              Start="0,0"
+              End="0,44.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,44.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="179,42"
+          Id="Package\Sequence Container\Execute SQL Task 1"
+          TopLeft="263.5,23" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="676,221"
+          Size="676,264"
+          Id="Package\Sequence Container"
+          TopLeft="149,46" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="487,310">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="91,43"
+              Start="0,0"
+              End="83.5,43">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,39" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,39"
+                    Point2="0,43"
+                    Point3="4,43" />
+                  <mssgle:LineSegment
+                    End="83.5,43" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Sequence Container\Consumptions-Data Flow">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="159,42"
+          Id="Package\Sequence Container\Consumptions-Data Flow\Conditional Split"
+          TopLeft="62,114" />
+        <NodeLayout
+          Size="149,42"
+          Id="Package\Sequence Container\Consumptions-Data Flow\ODBC Source"
+          TopLeft="103,20" />
+        <EdgeLayout
+          Id="Package\Sequence Container\Consumptions-Data Flow.Paths[ODBC Source Output]"
+          TopLeft="177.5,62">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-36,52"
+              Start="0,0"
+              End="-36,44.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,22"
+                    Point2="0,26"
+                    Point3="-4,26" />
+                  <mssgle:LineSegment
+                    End="-32,26" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-32,26"
+                    Point2="-36,26"
+                    Point3="-36,30" />
+                  <mssgle:LineSegment
+                    End="-36,44.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="177,42"
+          Id="Package\Sequence Container\Consumptions-Data Flow\OLE DB Destination"
+          TopLeft="28,202" />
+        <EdgeLayout
+          Id="Package\Sequence Container\Consumptions-Data Flow.Paths[Case 1]"
+          TopLeft="141.5,156">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-25,46"
+              Start="0,0"
+              End="-25,38.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,19"
+                    Point2="0,23"
+                    Point3="-4,23" />
+                  <mssgle:LineSegment
+                    End="-21,23" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-21,23"
+                    Point2="-25,23"
+                    Point3="-25,27" />
+                  <mssgle:LineSegment
+                    End="-25,38.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-27.7180859375,28,30.436171875,9.5537109375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Sequence Container\Consumptions-Data Flow\ODBC Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Sequence Container\Firm_list - Data Flow">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="161,42"
+          Id="Package\Sequence Container\Firm_list - Data Flow\Data Conversion"
+          TopLeft="331,188" />
+        <NodeLayout
+          Size="159,42"
+          Id="Package\Sequence Container\Firm_list - Data Flow\Conditional Split 1"
+          TopLeft="319,114" />
+        <EdgeLayout
+          Id="Package\Sequence Container\Firm_list - Data Flow.Paths[Case 1]"
+          TopLeft="398.5,156">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="13,32"
+              Start="0,0"
+              End="13,24.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,12" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,12"
+                    Point2="0,16"
+                    Point3="4,16" />
+                  <mssgle:LineSegment
+                    End="9,16" />
+                  <mssgle:CubicBezierSegment
+                    Point1="9,16"
+                    Point2="13,16"
+                    Point3="13,20" />
+                  <mssgle:LineSegment
+                    End="13,24.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-8.7180859375,21,30.436171875,9.5537109375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="149,42"
+          Id="Package\Sequence Container\Firm_list - Data Flow\ODBC Source"
+          TopLeft="321,19" />
+        <EdgeLayout
+          Id="Package\Sequence Container\Firm_list - Data Flow.Paths[ODBC Source Output]"
+          TopLeft="397,61">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,53"
+              Start="0,0"
+              End="0,45.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,45.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="169,42"
+          Id="Package\Sequence Container\Firm_list - Data Flow\ODBC Destination"
+          TopLeft="302,276" />
+        <EdgeLayout
+          Id="Package\Sequence Container\Firm_list - Data Flow.Paths[Data Conversion Output]"
+          TopLeft="411.5,230">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-25,46"
+              Start="0,0"
+              End="-25,38.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,19"
+                    Point2="0,23"
+                    Point3="-4,23" />
+                  <mssgle:LineSegment
+                    End="-21,23" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-21,23"
+                    Point2="-25,23"
+                    Point3="-25,27" />
+                  <mssgle:LineSegment
+                    End="-25,38.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <TaskHost
+    design-time-name="Package\Sequence Container\Users - Data Flow">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="170,42"
+          Id="Package\Sequence Container\Users - Data Flow\Data Conversion 1"
+          TopLeft="580,200" />
+        <NodeLayout
+          Size="159,42"
+          Id="Package\Sequence Container\Users - Data Flow\Conditional Split 2"
+          TopLeft="576,114" />
+        <EdgeLayout
+          Id="Package\Sequence Container\Users - Data Flow.Paths[Case 1]"
+          TopLeft="655.5,156">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="9.5,44"
+              Start="0,0"
+              End="9.5,36.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,18"
+                    Point2="0,22"
+                    Point3="4,22" />
+                  <mssgle:LineSegment
+                    End="5.5,22" />
+                  <mssgle:CubicBezierSegment
+                    Point1="5.5,22"
+                    Point2="9.5,22"
+                    Point3="9.5,26" />
+                  <mssgle:LineSegment
+                    End="9.5,36.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-10.4680859375,27,30.436171875,9.5537109375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="149,42"
+          Id="Package\Sequence Container\Users - Data Flow\ODBC Source"
+          TopLeft="572,26" />
+        <NodeLayout
+          Size="169,42"
+          Id="Package\Sequence Container\Users - Data Flow\ODBC Destination"
+          TopLeft="622,310" />
+        <EdgeLayout
+          Id="Package\Sequence Container\Users - Data Flow.Paths[ODBC Source Output]"
+          TopLeft="646.5,68">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="9,46"
+              Start="0,0"
+              End="9,38.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,19"
+                    Point2="0,23"
+                    Point3="4,23" />
+                  <mssgle:LineSegment
+                    End="5,23" />
+                  <mssgle:CubicBezierSegment
+                    Point1="5,23"
+                    Point2="9,23"
+                    Point3="9,27" />
+                  <mssgle:LineSegment
+                    End="9,38.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Sequence Container\Users - Data Flow.Paths[Data Conversion Output]"
+          TopLeft="665,242">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="41.5,68"
+              Start="0,0"
+              End="41.5,60.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,30"
+                    Point2="0,34"
+                    Point3="4,34" />
+                  <mssgle:LineSegment
+                    End="37.5,34" />
+                  <mssgle:CubicBezierSegment
+                    Point1="37.5,34"
+                    Point2="41.5,34"
+                    Point3="41.5,38" />
+                  <mssgle:LineSegment
+                    End="41.5,60.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Sequence Container\Firm_list - Data Flow\ODBC Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Sequence Container\Firm_list - Data Flow\ODBC Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Sequence Container\Users - Data Flow\ODBC Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Sequence Container\Users - Data Flow\ODBC Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Sequence Container\Consumptions-Data Flow\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
