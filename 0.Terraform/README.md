@@ -1,17 +1,24 @@
 
 # Provisioning Virtual Machines on Google Cloud with Terraform and Automating the Deployment of Containerized Applications using Bash Script
 
+## Add firewall rule
+```
+cd add_firewall
+terraform init
+terraform apply
+```
 
+## Up instances
+```
+cd up-instances
+terraform init
+terraform apply
+```
 
-
-
-
-
-
-
-
-
-
+## Deploy all app's in dev folder 
+```
+./deploy-apps.sh
+```
 
 #### Restore MySQL Database
 ```
