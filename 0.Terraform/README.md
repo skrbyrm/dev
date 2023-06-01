@@ -13,15 +13,17 @@
 
 
 
-# Restore MySQL Database
+#### Restore MySQL Database
+```
 cd /home/ubuntu/dev/data
 apt install mysql-client-core-8.0 -y
 mysql -h $selected_node -u root -p cons < cons.sql
-
-# Restore PostgreSQL Database
+```
+#### Restore PostgreSQL Database
+```
 cd /home/ubuntu/dev/data
 apt install postgresql-client-common postgresql-client -y
 psql -h $selected_node -p 5432 -U pgadmin -d cons -c "\i postgres.sql"
-
-# Restore SQL Server Database
-# for now use SQL Server Management Studio !
+```
+#### Restore SQL Server Database
+ ! for now use SQL Server Management Studio !
