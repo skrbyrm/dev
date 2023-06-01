@@ -1,5 +1,6 @@
 
 # Provisioning Virtual Machines on Google Cloud with Terraform and Automating the Deployment of Containerized Applications using Bash Script
+This repository provides scripts and instructions for provisioning virtual machines on Google Cloud Platform using Terraform and automating the deployment of containerized applications using a Bash script.
 
 ## Add firewall rule
 ```
