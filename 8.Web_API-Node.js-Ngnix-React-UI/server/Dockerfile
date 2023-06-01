@@ -22,5 +22,5 @@ EXPOSE 5000
 # Start the application using pm2
 CMD ["pm2-runtime", "index.js"]
 
-# docker build -t cons-api
-# docker run -d -p 5000:5000 cons-api
+# docker build -t node-api .
+# docker run -d -p 5000:5000 node-api

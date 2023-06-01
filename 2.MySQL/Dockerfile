@@ -1,13 +1,14 @@
-FROM mysql:8
-
-# Set MySQL environment variables
-ENV MYSQL_ROOT_PASSWORD=mysql871.
-ENV MYSQL_DATABASE=cons
-ENV MYSQL_USER=enerji
-ENV MYSQL_PASSWORD=mysql871.
+FROM mysql:8.0.32
 
 # Expose port 3306
 EXPOSE 3306
 
+# Add a volume mount for data persistence
+VOLUME /var/lib/mysql
+
 # Start MySQL service
 CMD ["mysqld"]
+
+
+# docker build -t mysql-image .
+# docker run --env-file .env -d -p 3306:3306 --name mysql-container mysql-image

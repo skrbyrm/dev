@@ -27,3 +27,6 @@ EXPOSE 80
 
 # Run nginx
 CMD ["nginx", "-g", "daemon off;"]
+
+# docker build -t client-app .
+# docker run -d -p 80:80 client-app

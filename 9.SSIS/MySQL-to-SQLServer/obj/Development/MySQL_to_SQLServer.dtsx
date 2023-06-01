@@ -5,14 +5,14 @@
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="KUASAR"
   DTS:CreatorName="KUASAR\sakir"
-  DTS:DTSID="{A53877A8-D7BE-4593-ACE9-21045B31E760}"
+  DTS:DTSID="{6829300B-3B4C-429A-B82A-3F1A40E4F879}"
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="16.0.5131.0"
   DTS:LocaleID="1033"
-  DTS:ObjectName="Package"
+  DTS:ObjectName="MySQL_to_SQLServer"
   DTS:PackageType="5"
-  DTS:VersionBuild="17"
-  DTS:VersionGUID="{4E181E2A-BD69-47E2-800E-B60CAD1AFA92}">
+  DTS:VersionBuild="24"
+  DTS:VersionGUID="{B662AA87-0E32-462F-AC83-A5154EC7A1DE}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -27,7 +27,7 @@
           <DTS:Password
             DTS:Name="pwd"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAUVRSxBlQakasShcXb35GdgAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAAc9wxIrstLvypi0UOIi3CzTsUbQVASh9oPdAcXwUqmYwAAAAAOgAAAAAIAACAAAAB9ydjhvzMjOY6s1NBjVKwh6vNFVyOWT3srH8DS7uZ7sSAAAAAsM8xKNmvJZvmNcdEQEgu7xLnzcysLWDa1yeaUicDXn0AAAABI/UzwNj89ZR++NKo0akIEA+3xOOl0hNZ/JT0ccKDb+YKPeCqXqUFI7ZjobF/rT44Yb7/en5xXMLNEW8pwub0Z</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAUVRSxBlQakasShcXb35GdgAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAACasDRUj4j53LEeIWsRWmRFOiYfkO5fVodem3NjIi/RsAAAAAAOgAAAAAIAACAAAABaNhV8aaIUg5Oy0H9LVIv69ahgSMSKUoTgTJiQ/Pmv2SAAAADyN6JwMrU4pdBNqWWzIwOToX4Uh4sS20jvA0FJHbM2BkAAAADMRxGCdswzhn/NgLuKpdg0D/hiW3PYFt1tF4anvXa22PO5GHtF90WKRFzte6HuHhEHro5ObO9He3ICi3CToH73</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -40,7 +40,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="maxDate_cons">
       <DTS:VariableValue
-        DTS:DataType="7">5/22/2023 7:26:12 PM</DTS:VariableValue>
+        DTS:DataType="7">5/22/2023 7:26:00 PM</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -49,7 +49,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="maxDate_firm">
       <DTS:VariableValue
-        DTS:DataType="7">5/22/2023 7:26:45 PM</DTS:VariableValue>
+        DTS:DataType="7">5/22/2023 7:26:00 PM</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -58,7 +58,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="maxDate_user">
       <DTS:VariableValue
-        DTS:DataType="7">5/22/2023 7:27:01 PM</DTS:VariableValue>
+        DTS:DataType="7">5/22/2023 7:27:00 PM</DTS:VariableValue>
     </DTS:Variable>
   </DTS:Variables>
   <DTS:Executables>
@@ -2336,23 +2336,31 @@
         <NodeLayout
           Size="170,42"
           Id="Package\Execute SQL Task"
-          TopLeft="308,359" />
+          TopLeft="385,376" />
         <NodeLayout
           Size="202,42"
           Id="Package\Sequence Container\Consumptions-Data Flow"
           TopLeft="10.5,117" />
         <NodeLayout
-          Size="167,42"
-          Id="Package\Sequence Container\Users - Data Flow"
-          TopLeft="506.5,109" />
-        <NodeLayout
           Size="170,42"
           Id="Package\Sequence Container\Execute SQL Task"
           TopLeft="5.5,23" />
         <NodeLayout
+          Size="179,42"
+          Id="Package\Sequence Container\Execute SQL Task 1"
+          TopLeft="263.5,23" />
+        <NodeLayout
           Size="170,42"
           Id="Package\Sequence Container\Execute SQL Task 2"
-          TopLeft="501.5,15" />
+          TopLeft="494.5,22" />
+        <NodeLayout
+          Size="180,42"
+          Id="Package\Sequence Container\Firm_list - Data Flow"
+          TopLeft="264.5,117" />
+        <NodeLayout
+          Size="167,42"
+          Id="Package\Sequence Container\Users - Data Flow"
+          TopLeft="496.5,114" />
         <EdgeLayout
           Id="Package\Sequence Container.PrecedenceConstraints[Constraint]"
           TopLeft="90.5,65">
@@ -2388,34 +2396,8 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Sequence Container.PrecedenceConstraints[Constraint 2]"
-          TopLeft="588.25,57">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,52"
-              Start="0,0"
-              End="0,44.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,44.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="180,42"
-          Id="Package\Sequence Container\Firm_list - Data Flow"
-          TopLeft="261.5,124" />
-        <EdgeLayout
           Id="Package\Sequence Container.PrecedenceConstraints[Constraint 1]"
-          TopLeft="348.75,72">
+          TopLeft="353.75,65">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -2435,10 +2417,28 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="179,42"
-          Id="Package\Sequence Container\Execute SQL Task 1"
-          TopLeft="256.5,30" />
+        <EdgeLayout
+          Id="Package\Sequence Container.PrecedenceConstraints[Constraint 2]"
+          TopLeft="579.75,64">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,50"
+              Start="0,0"
+              End="0,42.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,42.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
@@ -2452,26 +2452,26 @@
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-94,49"
+              EndConnector="-17,66"
               Start="0,0"
-              End="-94,41.5">
+              End="-17,58.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,20.5" />
+                    End="0,29" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,20.5"
-                    Point2="0,24.5"
-                    Point3="-4,24.5" />
+                    Point1="0,29"
+                    Point2="0,33"
+                    Point3="-4,33" />
                   <mssgle:LineSegment
-                    End="-90,24.5" />
+                    End="-13,33" />
                   <mssgle:CubicBezierSegment
-                    Point1="-90,24.5"
-                    Point2="-94,24.5"
-                    Point3="-94,28.5" />
+                    Point1="-13,33"
+                    Point2="-17,33"
+                    Point3="-17,37" />
                   <mssgle:LineSegment
-                    End="-94,41.5" />
+                    End="-17,58.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2488,6 +2488,10 @@
     <LayoutInfo>
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="177,42"
+          Id="Package\Sequence Container\Consumptions-Data Flow\OLE DB Destination"
+          TopLeft="28,202" />
         <NodeLayout
           Size="159,42"
           Id="Package\Sequence Container\Consumptions-Data Flow\Conditional Split"
@@ -2530,10 +2534,6 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="177,42"
-          Id="Package\Sequence Container\Consumptions-Data Flow\OLE DB Destination"
-          TopLeft="28,202" />
         <EdgeLayout
           Id="Package\Sequence Container\Consumptions-Data Flow.Paths[Case 1]"
           TopLeft="141.5,156">
@@ -2574,6 +2574,19 @@
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
+    design-time-name="Package\Sequence Container\Consumptions-Data Flow\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
     design-time-name="Package\Sequence Container\Consumptions-Data Flow\ODBC Source">
     <Properties>
       <Property>
@@ -2592,13 +2605,55 @@
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="161,42"
-          Id="Package\Sequence Container\Firm_list - Data Flow\Data Conversion"
-          TopLeft="331,188" />
+          Size="169,42"
+          Id="Package\Sequence Container\Firm_list - Data Flow\ODBC Destination"
+          TopLeft="302,276" />
         <NodeLayout
           Size="159,42"
           Id="Package\Sequence Container\Firm_list - Data Flow\Conditional Split 1"
           TopLeft="319,114" />
+        <NodeLayout
+          Size="149,42"
+          Id="Package\Sequence Container\Firm_list - Data Flow\ODBC Source"
+          TopLeft="321,19" />
+        <NodeLayout
+          Size="161,42"
+          Id="Package\Sequence Container\Firm_list - Data Flow\Data Conversion"
+          TopLeft="331,188" />
+        <EdgeLayout
+          Id="Package\Sequence Container\Firm_list - Data Flow.Paths[Data Conversion Output]"
+          TopLeft="411.5,230">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-25,46"
+              Start="0,0"
+              End="-25,38.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,19"
+                    Point2="0,23"
+                    Point3="-4,23" />
+                  <mssgle:LineSegment
+                    End="-21,23" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-21,23"
+                    Point2="-25,23"
+                    Point3="-25,27" />
+                  <mssgle:LineSegment
+                    End="-25,38.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\Sequence Container\Firm_list - Data Flow.Paths[Case 1]"
           TopLeft="398.5,156">
@@ -2635,10 +2690,6 @@
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="149,42"
-          Id="Package\Sequence Container\Firm_list - Data Flow\ODBC Source"
-          TopLeft="321,19" />
         <EdgeLayout
           Id="Package\Sequence Container\Firm_list - Data Flow.Paths[ODBC Source Output]"
           TopLeft="397,61">
@@ -2661,19 +2712,65 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Sequence Container\Firm_list - Data Flow\ODBC Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Sequence Container\Firm_list - Data Flow\ODBC Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Sequence Container\Users - Data Flow">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="149,42"
+          Id="Package\Sequence Container\Users - Data Flow\ODBC Source"
+          TopLeft="572,26" />
+        <NodeLayout
+          Size="159,42"
+          Id="Package\Sequence Container\Users - Data Flow\Conditional Split 2"
+          TopLeft="576,114" />
         <NodeLayout
           Size="169,42"
-          Id="Package\Sequence Container\Firm_list - Data Flow\ODBC Destination"
-          TopLeft="302,276" />
+          Id="Package\Sequence Container\Users - Data Flow\ODBC Destination"
+          TopLeft="622,310" />
+        <NodeLayout
+          Size="170,42"
+          Id="Package\Sequence Container\Users - Data Flow\Data Conversion 1"
+          TopLeft="580,200" />
         <EdgeLayout
-          Id="Package\Sequence Container\Firm_list - Data Flow.Paths[Data Conversion Output]"
-          TopLeft="411.5,230">
+          Id="Package\Sequence Container\Users - Data Flow.Paths[ODBC Source Output]"
+          TopLeft="646.5,68">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-25,46"
+              EndConnector="9,46"
               Start="0,0"
-              End="-25,38.5">
+              End="9,38.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -2682,39 +2779,61 @@
                   <mssgle:CubicBezierSegment
                     Point1="0,19"
                     Point2="0,23"
-                    Point3="-4,23" />
+                    Point3="4,23" />
                   <mssgle:LineSegment
-                    End="-21,23" />
+                    End="5,23" />
                   <mssgle:CubicBezierSegment
-                    Point1="-21,23"
-                    Point2="-25,23"
-                    Point3="-25,27" />
+                    Point1="5,23"
+                    Point2="9,23"
+                    Point3="9,27" />
                   <mssgle:LineSegment
-                    End="-25,38.5" />
+                    End="9,38.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <TaskHost
-    design-time-name="Package\Sequence Container\Users - Data Flow">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
-        <NodeLayout
-          Size="170,42"
-          Id="Package\Sequence Container\Users - Data Flow\Data Conversion 1"
-          TopLeft="580,200" />
-        <NodeLayout
-          Size="159,42"
-          Id="Package\Sequence Container\Users - Data Flow\Conditional Split 2"
-          TopLeft="576,114" />
+        <EdgeLayout
+          Id="Package\Sequence Container\Users - Data Flow.Paths[Data Conversion Output]"
+          TopLeft="665,242">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="41.5,68"
+              Start="0,0"
+              End="41.5,60.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,30"
+                    Point2="0,34"
+                    Point3="4,34" />
+                  <mssgle:LineSegment
+                    End="37.5,34" />
+                  <mssgle:CubicBezierSegment
+                    Point1="37.5,34"
+                    Point2="41.5,34"
+                    Point3="41.5,38" />
+                  <mssgle:LineSegment
+                    End="41.5,60.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\Sequence Container\Users - Data Flow.Paths[Case 1]"
           TopLeft="655.5,156">
@@ -2751,111 +2870,9 @@
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="149,42"
-          Id="Package\Sequence Container\Users - Data Flow\ODBC Source"
-          TopLeft="572,26" />
-        <NodeLayout
-          Size="169,42"
-          Id="Package\Sequence Container\Users - Data Flow\ODBC Destination"
-          TopLeft="622,310" />
-        <EdgeLayout
-          Id="Package\Sequence Container\Users - Data Flow.Paths[ODBC Source Output]"
-          TopLeft="646.5,68">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="9,46"
-              Start="0,0"
-              End="9,38.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,19" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,19"
-                    Point2="0,23"
-                    Point3="4,23" />
-                  <mssgle:LineSegment
-                    End="5,23" />
-                  <mssgle:CubicBezierSegment
-                    Point1="5,23"
-                    Point2="9,23"
-                    Point3="9,27" />
-                  <mssgle:LineSegment
-                    End="9,38.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Sequence Container\Users - Data Flow.Paths[Data Conversion Output]"
-          TopLeft="665,242">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="41.5,68"
-              Start="0,0"
-              End="41.5,60.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,30" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,30"
-                    Point2="0,34"
-                    Point3="4,34" />
-                  <mssgle:LineSegment
-                    End="37.5,34" />
-                  <mssgle:CubicBezierSegment
-                    Point1="37.5,34"
-                    Point2="41.5,34"
-                    Point3="41.5,38" />
-                  <mssgle:LineSegment
-                    End="41.5,60.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\Sequence Container\Firm_list - Data Flow\ODBC Source">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Sequence Container\Firm_list - Data Flow\ODBC Destination">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Sequence Container\Users - Data Flow\ODBC Source">
     <Properties>
@@ -2871,19 +2888,6 @@
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Sequence Container\Users - Data Flow\ODBC Destination">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Sequence Container\Consumptions-Data Flow\OLE DB Destination">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>

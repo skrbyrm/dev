@@ -22,3 +22,5 @@ services:
 volumes:
   db-data:
 
+  # docker-compose up -d 
+

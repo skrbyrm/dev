@@ -5,10 +5,10 @@
   DTS:CreationName="ODBC">
   <DTS:ObjectData>
     <DTS:ConnectionManager
-      DTS:ConnectionString="uid=sa;Dsn=SQL-Edge-instance-2;">
+      DTS:ConnectionString="uid=sa;Dsn=SQL-Edge-instance-1;">
       <DTS:Password
         DTS:Name="pwd"
-        Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAUVRSxBlQakasShcXb35GdgAAAAACAAAAAAAQZgAAAAEAACAAAAAVTUjiGAnY/qE/xoWbOCKJVMxcqswDmudGkHchY+UCRQAAAAAOgAAAAAIAACAAAAAj+7PdydQpijf6eMIGD3IO7QDrYIsg14bkYaRofPf1OHAAAAAu2rEKhbpK75oUVBeeBNu6k5JePVJu/u7RnT+IOvCUKu7a5Ba02uFxGBSu/KtaufOEDiccWn/T2pwuu9HApnvdpAuX4INmuThrPCHIutEg/4kOqnjhOKSViFGiR7CgZ2mkw2tJadziZOWrGIMHPoO6QAAAAEvjjjHaiYI7LXLLYN5IWSaTUToan3NUN/wKkmsACny3yvBk9hrArlJoHDALQWqE8gStYgcgwP7zs/q/kqgGWKo=</DTS:Password>
+        Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAUVRSxBlQakasShcXb35GdgAAAAACAAAAAAAQZgAAAAEAACAAAACw4hklfPR3rEnw9YNSYpwIhzVMwdfuF4PsTUZONzMu3AAAAAAOgAAAAAIAACAAAABFH30RG8R+nN/GqZWyKbCGEe/HvQQAWEQ+LI/me1O49nAAAABy68tngukv+ZtXwsWadJYvUZsYFC7L+RHu6So74CR8DSfQp3GHR9JFLhApo8c8k+gfV24T2sSPvi/2efLcg9v6M+a5No9qFUK161v5tMHjVs58/nriPuRlGRlpz/slsmnnwRa2isNcoOv5CVg+dNUGQAAAAAFWHePF/7a6p6GRCpAn/YZfJWjabdqCHhYAEnwW+/KWMJ0Ck86Kc82AjS+VxosuTS+g+phRl3hBwu/8k9pIRkg=</DTS:Password>
     </DTS:ConnectionManager>
   </DTS:ObjectData>
 </DTS:ConnectionManager>

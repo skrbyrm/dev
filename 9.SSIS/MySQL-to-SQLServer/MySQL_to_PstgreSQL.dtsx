@@ -1,25 +1,25 @@
-<?xml version="1.0"?>
+﻿<?xml version="1.0"?>
 <DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
   DTS:refId="Package"
   DTS:CreationDate="5/22/2023 4:09:57 PM"
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="KUASAR"
   DTS:CreatorName="KUASAR\sakir"
-  DTS:DTSID="{A53877A8-D7BE-4593-ACE9-21045B31E760}"
+  DTS:DTSID="{C0616A94-2FF0-405A-A56E-CA57FA62BDB1}"
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="16.0.5131.0"
   DTS:LocaleID="1033"
-  DTS:ObjectName="Package"
+  DTS:ObjectName="MySQL_to_PstgreSQL"
   DTS:PackageType="5"
-  DTS:VersionBuild="17"
-  DTS:VersionGUID="{4E181E2A-BD69-47E2-800E-B60CAD1AFA92}">
+  DTS:VersionBuild="46"
+  DTS:VersionGUID="{33653E39-EE76-4D32-AA31-D73DB8908797}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[Postgres-instance-1.pgadmin 1]"
       DTS:CreationName="ADO.NET:System.Data.Odbc.OdbcConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
-      DTS:DTSID="{0EDB1406-F596-4000-9D68-BDF4162DC563}"
+      DTS:DTSID="{32F13487-DD52-42C6-BEC5-1A0F5E208D5F}"
       DTS:ObjectName="Postgres-instance-1.pgadmin 1">
       <DTS:ObjectData>
         <DTS:ConnectionManager
@@ -27,7 +27,7 @@
           <DTS:Password
             DTS:Name="pwd"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAUVRSxBlQakasShcXb35GdgAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAAc9wxIrstLvypi0UOIi3CzTsUbQVASh9oPdAcXwUqmYwAAAAAOgAAAAAIAACAAAAB9ydjhvzMjOY6s1NBjVKwh6vNFVyOWT3srH8DS7uZ7sSAAAAAsM8xKNmvJZvmNcdEQEgu7xLnzcysLWDa1yeaUicDXn0AAAABI/UzwNj89ZR++NKo0akIEA+3xOOl0hNZ/JT0ccKDb+YKPeCqXqUFI7ZjobF/rT44Yb7/en5xXMLNEW8pwub0Z</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAUVRSxBlQakasShcXb35GdgAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAADexOrkSukDTBj5D9FDJ/O55Bcxp/PSCvraxm7rQaxg1QAAAAAOgAAAAAIAACAAAACZThxB7dy9Ho5Vwri1apD5dc4MGOhGVxMyWYEv59dwVyAAAADxmhkPy4o8TW9MYlPY09aN/SCo4AMG+LABh6PsDZEdmUAAAAAQYPqDexDtqydIc/jYMeSMJhH0p4H20Qy+TRDUhTOE7sYfAs5m1757K8DNa/Tw50Jh5yr6j4ZKQOYLkZp/MObr</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -35,16 +35,16 @@
   <DTS:Variables>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{8D4A0662-A001-4E8D-AABF-98878AB18A39}"
+      DTS:DTSID="{EE634738-49DF-4984-A73D-9858D7F7EB33}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
       DTS:ObjectName="maxDate_cons">
       <DTS:VariableValue
-        DTS:DataType="7">5/22/2023 7:26:12 PM</DTS:VariableValue>
+        DTS:DataType="7">5/22/2023 7:26:00 PM</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{9A610348-4A5A-43FD-AF9C-63C191510BC2}"
+      DTS:DTSID="{683F28FC-E19A-4785-8EAD-90ACBEE1F73B}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
       DTS:ObjectName="maxDate_firm">
@@ -53,7 +53,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{39449766-37F2-4F2A-8740-5687227F8E29}"
+      DTS:DTSID="{98053002-C664-4AD8-9DBC-6A4A5C7E8314}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
       DTS:ObjectName="maxDate_user">
@@ -66,24 +66,39 @@
       DTS:refId="Package\Execute SQL Task"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
-      DTS:DTSID="{e20463d9-d551-4681-9bc2-94b26d59b12e}"
+      DTS:DTSID="{8FD11B5B-14BD-486C-AC03-995287025A07}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="Execute SQL Task"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="0">
+      DTS:ThreadHint="3">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{95EAB25E-CC46-4DE8-B5BB-F7F9B86A7B17}"
+          SQLTask:Connection="{DC1D3FD3-88EF-4A3F-96E8-4BF1C4456205}"
           SQLTask:SqlStatementSource="BEGIN&#xA;    SET NOCOUNT ON;&#xA;    EXEC sp_msforeachtable &quot;ALTER TABLE ? NOCHECK CONSTRAINT all&quot;;&#xA;    EXEC proc_data_by_months;&#xA;    EXEC proc_data_by_weeks;&#xA;    EXEC proc_data_by_dates;&#xA;    EXEC proc_data_by_hours;&#xA;    EXEC sp_msforeachtable &quot;ALTER TABLE ? CHECK CONSTRAINT all&quot;;&#xA;END" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Execute SQL Task 1"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{6B41949B-B45F-412B-AF29-9836F0068CDE}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Execute SQL Task 1"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="4">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
       DTS:refId="Package\Sequence Container"
       DTS:CreationName="STOCK:SEQUENCE"
       DTS:Description="Sequence Container"
-      DTS:DTSID="{f3c1ad69-c28d-4b05-9d93-035f4589dba9}"
+      DTS:DTSID="{22E50EE3-25A6-45AF-8E6C-4CC95A0A4591}"
       DTS:ExecutableType="STOCK:SEQUENCE"
       DTS:LocaleID="-1"
       DTS:ObjectName="Sequence Container">
@@ -93,7 +108,7 @@
           DTS:refId="Package\Sequence Container\Consumptions-Data Flow"
           DTS:CreationName="Microsoft.Pipeline"
           DTS:Description="Data Flow Task"
-          DTS:DTSID="{23c57be4-9c61-4135-b286-4382177dde7f}"
+          DTS:DTSID="{88F58C23-0062-45BA-88CC-1B51AC455DD7}"
           DTS:ExecutableType="Microsoft.Pipeline"
           DTS:LocaleID="-1"
           DTS:ObjectName="Consumptions-Data Flow"
@@ -185,6 +200,212 @@
                           refId="Package\Sequence Container\Consumptions-Data Flow\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
                           dataType="i4"
                           lineageId="Package\Sequence Container\Consumptions-Data Flow\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Sequence Container\Consumptions-Data Flow\ODBC Destination"
+                  componentClassID="Microsoft.SSISODBCDst"
+                  contactInfo="ODBC Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="ODBC Destination"
+                  name="ODBC Destination"
+                  usesDispositions="true"
+                  version="1">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="The name of the table to be fetched."
+                      expressionType="Notify"
+                      name="TableName">"public"."consumptions"</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specify the number of rows fetched per batch."
+                      expressionType="Notify"
+                      name="BatchSize">1000</property>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of rows inserted under the same transaction."
+                      expressionType="Notify"
+                      name="TransactionSize">1000</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Determines the chunk size allocation for LOB columns"
+                      expressionType="Notify"
+                      name="LobChunkSize">32768</property>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds to wait for an SQL statement to execute before returning to the application."
+                      expressionType="Notify"
+                      name="StatementTimeout">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="The code page to use when code page information is unavailable from the data source."
+                      expressionType="Notify"
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Int32"
+                      description="The method used for inserting data. Possible values are 'Batch' or 'Row by row'."
+                      expressionType="Notify"
+                      name="InsertMethod">1</property>
+                    <property
+                      dataType="System.Int32"
+                      description="The ODBC C data type for binding numeric data."
+                      expressionType="Notify"
+                      name="BindNumericAs">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Determines how the component would bind columns of (multi)-byte string types (i.e., SQL_CHAR, SQL_VARCHAR, SQL_LONGVARCHAR). The options are: Unicode (SQL_C_WCHAR) and ANSI (SQL_C_CHAR)."
+                      expressionType="Notify"
+                      name="BindCharColumnsAs">0</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Sequence Container\Consumptions-Data Flow\ODBC Destination.Connections[ODBCConnection]"
+                      connectionManagerID="{DC1D3FD3-88EF-4A3F-96E8-4BF1C4456205}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[Postgres-instance-1.pgadmin]"
+                      description="The ODBC runtime connection used to access the database."
+                      name="ODBCConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Sequence Container\Consumptions-Data Flow\ODBC Destination.Inputs[ODBC Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="ODBC Destination Input"
+                      truncationRowDisposition="FailComponent">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Sequence Container\Consumptions-Data Flow\ODBC Destination.Inputs[ODBC Destination Input].Columns[id]"
+                          cachedDataType="i4"
+                          cachedName="id"
+                          externalMetadataColumnId="Package\Sequence Container\Consumptions-Data Flow\ODBC Destination.Inputs[ODBC Destination Input].ExternalColumns[id]"
+                          lineageId="Package\Sequence Container\Consumptions-Data Flow\ODBC Source.Outputs[ODBC Source Output].Columns[id]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Consumptions-Data Flow\ODBC Destination.Inputs[ODBC Destination Input].Columns[date]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="date"
+                          externalMetadataColumnId="Package\Sequence Container\Consumptions-Data Flow\ODBC Destination.Inputs[ODBC Destination Input].ExternalColumns[date]"
+                          lineageId="Package\Sequence Container\Consumptions-Data Flow\ODBC Source.Outputs[ODBC Source Output].Columns[date]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Consumptions-Data Flow\ODBC Destination.Inputs[ODBC Destination Input].Columns[active]"
+                          cachedDataType="r8"
+                          cachedName="active"
+                          externalMetadataColumnId="Package\Sequence Container\Consumptions-Data Flow\ODBC Destination.Inputs[ODBC Destination Input].ExternalColumns[active]"
+                          lineageId="Package\Sequence Container\Consumptions-Data Flow\ODBC Source.Outputs[ODBC Source Output].Columns[active]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Consumptions-Data Flow\ODBC Destination.Inputs[ODBC Destination Input].Columns[inductive]"
+                          cachedDataType="r8"
+                          cachedName="inductive"
+                          externalMetadataColumnId="Package\Sequence Container\Consumptions-Data Flow\ODBC Destination.Inputs[ODBC Destination Input].ExternalColumns[inductive]"
+                          lineageId="Package\Sequence Container\Consumptions-Data Flow\ODBC Source.Outputs[ODBC Source Output].Columns[inductive]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Consumptions-Data Flow\ODBC Destination.Inputs[ODBC Destination Input].Columns[capacitive]"
+                          cachedDataType="r8"
+                          cachedName="capacitive"
+                          externalMetadataColumnId="Package\Sequence Container\Consumptions-Data Flow\ODBC Destination.Inputs[ODBC Destination Input].ExternalColumns[capacitive]"
+                          lineageId="Package\Sequence Container\Consumptions-Data Flow\ODBC Source.Outputs[ODBC Source Output].Columns[capacitive]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Consumptions-Data Flow\ODBC Destination.Inputs[ODBC Destination Input].Columns[hno]"
+                          cachedDataType="i8"
+                          cachedName="hno"
+                          externalMetadataColumnId="Package\Sequence Container\Consumptions-Data Flow\ODBC Destination.Inputs[ODBC Destination Input].ExternalColumns[hno]"
+                          lineageId="Package\Sequence Container\Consumptions-Data Flow\ODBC Source.Outputs[ODBC Source Output].Columns[hno]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Consumptions-Data Flow\ODBC Destination.Inputs[ODBC Destination Input].Columns[ssno]"
+                          cachedDataType="i8"
+                          cachedName="ssno"
+                          externalMetadataColumnId="Package\Sequence Container\Consumptions-Data Flow\ODBC Destination.Inputs[ODBC Destination Input].ExternalColumns[ssno]"
+                          lineageId="Package\Sequence Container\Consumptions-Data Flow\ODBC Source.Outputs[ODBC Source Output].Columns[ssno]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Consumptions-Data Flow\ODBC Destination.Inputs[ODBC Destination Input].Columns[facility_id]"
+                          cachedDataType="i4"
+                          cachedName="facility_id"
+                          externalMetadataColumnId="Package\Sequence Container\Consumptions-Data Flow\ODBC Destination.Inputs[ODBC Destination Input].ExternalColumns[facility_id]"
+                          lineageId="Package\Sequence Container\Consumptions-Data Flow\ODBC Source.Outputs[ODBC Source Output].Columns[facility_id]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Consumptions-Data Flow\ODBC Destination.Inputs[ODBC Destination Input].Columns[createdAt]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="createdAt"
+                          externalMetadataColumnId="Package\Sequence Container\Consumptions-Data Flow\ODBC Destination.Inputs[ODBC Destination Input].ExternalColumns[createdat]"
+                          lineageId="Package\Sequence Container\Consumptions-Data Flow\ODBC Source.Outputs[ODBC Source Output].Columns[createdAt]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Consumptions-Data Flow\ODBC Destination.Inputs[ODBC Destination Input].Columns[updatedAt]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="updatedAt"
+                          externalMetadataColumnId="Package\Sequence Container\Consumptions-Data Flow\ODBC Destination.Inputs[ODBC Destination Input].ExternalColumns[updatedat]"
+                          lineageId="Package\Sequence Container\Consumptions-Data Flow\ODBC Source.Outputs[ODBC Source Output].Columns[updatedAt]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Consumptions-Data Flow\ODBC Destination.Inputs[ODBC Destination Input].ExternalColumns[id]"
+                          dataType="i4"
+                          name="id" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Consumptions-Data Flow\ODBC Destination.Inputs[ODBC Destination Input].ExternalColumns[date]"
+                          dataType="dbTimeStamp2"
+                          name="date"
+                          scale="6" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Consumptions-Data Flow\ODBC Destination.Inputs[ODBC Destination Input].ExternalColumns[active]"
+                          dataType="r8"
+                          name="active" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Consumptions-Data Flow\ODBC Destination.Inputs[ODBC Destination Input].ExternalColumns[inductive]"
+                          dataType="r8"
+                          name="inductive" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Consumptions-Data Flow\ODBC Destination.Inputs[ODBC Destination Input].ExternalColumns[capacitive]"
+                          dataType="r8"
+                          name="capacitive" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Consumptions-Data Flow\ODBC Destination.Inputs[ODBC Destination Input].ExternalColumns[hno]"
+                          dataType="i8"
+                          name="hno" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Consumptions-Data Flow\ODBC Destination.Inputs[ODBC Destination Input].ExternalColumns[ssno]"
+                          dataType="i8"
+                          name="ssno" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Consumptions-Data Flow\ODBC Destination.Inputs[ODBC Destination Input].ExternalColumns[facility_id]"
+                          dataType="i4"
+                          name="facility_id" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Consumptions-Data Flow\ODBC Destination.Inputs[ODBC Destination Input].ExternalColumns[createdat]"
+                          dataType="dbTimeStamp2"
+                          name="createdat"
+                          scale="6" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Consumptions-Data Flow\ODBC Destination.Inputs[ODBC Destination Input].ExternalColumns[updatedat]"
+                          dataType="dbTimeStamp2"
+                          name="updatedat"
+                          scale="6" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Sequence Container\Consumptions-Data Flow\ODBC Destination.Outputs[ODBC Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="ODBC Destination Error Output"
+                      synchronousInputId="Package\Sequence Container\Consumptions-Data Flow\ODBC Destination.Inputs[ODBC Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\Consumptions-Data Flow\ODBC Destination.Outputs[ODBC Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Consumptions-Data Flow\ODBC Destination.Outputs[ODBC Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Consumptions-Data Flow\ODBC Destination.Outputs[ODBC Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Consumptions-Data Flow\ODBC Destination.Outputs[ODBC Destination Error Output].Columns[ErrorColumn]"
                           name="ErrorColumn"
                           specialFlags="2" />
                       </outputColumns>
@@ -461,214 +682,11 @@
                     </output>
                   </outputs>
                 </component>
-                <component
-                  refId="Package\Sequence Container\Consumptions-Data Flow\OLE DB Destination"
-                  componentClassID="Microsoft.OLEDBDestination"
-                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
-                  description="OLE DB Destination"
-                  name="OLE DB Destination"
-                  usesDispositions="true"
-                  version="4">
-                  <properties>
-                    <property
-                      dataType="System.Int32"
-                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
-                      name="CommandTimeout">0</property>
-                    <property
-                      dataType="System.String"
-                      description="Specifies the name of the database object used to open a rowset."
-                      name="OpenRowset">[dbo].[consumptions]</property>
-                    <property
-                      dataType="System.String"
-                      description="Specifies the variable that contains the name of the database object used to open a rowset."
-                      name="OpenRowsetVariable"></property>
-                    <property
-                      dataType="System.String"
-                      description="The SQL command to be executed."
-                      name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
-                    <property
-                      dataType="System.Int32"
-                      description="Specifies the column code page to use when code page information is unavailable from the data source."
-                      name="DefaultCodePage">1252</property>
-                    <property
-                      dataType="System.Boolean"
-                      description="Forces the use of the DefaultCodePage property value when describing character data."
-                      name="AlwaysUseDefaultCodePage">false</property>
-                    <property
-                      dataType="System.Int32"
-                      description="Specifies the mode used to access the database."
-                      name="AccessMode"
-                      typeConverter="AccessMode">3</property>
-                    <property
-                      dataType="System.Boolean"
-                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
-                      name="FastLoadKeepIdentity">false</property>
-                    <property
-                      dataType="System.Boolean"
-                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
-                      name="FastLoadKeepNulls">false</property>
-                    <property
-                      dataType="System.String"
-                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
-                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
-                    <property
-                      dataType="System.Int32"
-                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
-                      name="FastLoadMaxInsertCommitSize">2147483647</property>
-                  </properties>
-                  <connections>
-                    <connection
-                      refId="Package\Sequence Container\Consumptions-Data Flow\OLE DB Destination.Connections[OleDbConnection]"
-                      connectionManagerID="{95EAB25E-CC46-4DE8-B5BB-F7F9B86A7B17}:external"
-                      connectionManagerRefId="Project.ConnectionManagers[instance-2,31200.cons.sa]"
-                      description="The OLE DB runtime connection used to access the database."
-                      name="OleDbConnection" />
-                  </connections>
-                  <inputs>
-                    <input
-                      refId="Package\Sequence Container\Consumptions-Data Flow\OLE DB Destination.Inputs[OLE DB Destination Input]"
-                      errorOrTruncationOperation="Insert"
-                      errorRowDisposition="FailComponent"
-                      hasSideEffects="true"
-                      name="OLE DB Destination Input">
-                      <inputColumns>
-                        <inputColumn
-                          refId="Package\Sequence Container\Consumptions-Data Flow\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[id]"
-                          cachedDataType="i4"
-                          cachedName="id"
-                          externalMetadataColumnId="Package\Sequence Container\Consumptions-Data Flow\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[id]"
-                          lineageId="Package\Sequence Container\Consumptions-Data Flow\ODBC Source.Outputs[ODBC Source Output].Columns[id]" />
-                        <inputColumn
-                          refId="Package\Sequence Container\Consumptions-Data Flow\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[date]"
-                          cachedDataType="dbTimeStamp"
-                          cachedName="date"
-                          externalMetadataColumnId="Package\Sequence Container\Consumptions-Data Flow\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[date]"
-                          lineageId="Package\Sequence Container\Consumptions-Data Flow\ODBC Source.Outputs[ODBC Source Output].Columns[date]" />
-                        <inputColumn
-                          refId="Package\Sequence Container\Consumptions-Data Flow\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[active]"
-                          cachedDataType="r8"
-                          cachedName="active"
-                          externalMetadataColumnId="Package\Sequence Container\Consumptions-Data Flow\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[active]"
-                          lineageId="Package\Sequence Container\Consumptions-Data Flow\ODBC Source.Outputs[ODBC Source Output].Columns[active]" />
-                        <inputColumn
-                          refId="Package\Sequence Container\Consumptions-Data Flow\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[inductive]"
-                          cachedDataType="r8"
-                          cachedName="inductive"
-                          externalMetadataColumnId="Package\Sequence Container\Consumptions-Data Flow\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[inductive]"
-                          lineageId="Package\Sequence Container\Consumptions-Data Flow\ODBC Source.Outputs[ODBC Source Output].Columns[inductive]" />
-                        <inputColumn
-                          refId="Package\Sequence Container\Consumptions-Data Flow\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[capacitive]"
-                          cachedDataType="r8"
-                          cachedName="capacitive"
-                          externalMetadataColumnId="Package\Sequence Container\Consumptions-Data Flow\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[capacitive]"
-                          lineageId="Package\Sequence Container\Consumptions-Data Flow\ODBC Source.Outputs[ODBC Source Output].Columns[capacitive]" />
-                        <inputColumn
-                          refId="Package\Sequence Container\Consumptions-Data Flow\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[hno]"
-                          cachedDataType="i8"
-                          cachedName="hno"
-                          externalMetadataColumnId="Package\Sequence Container\Consumptions-Data Flow\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[hno]"
-                          lineageId="Package\Sequence Container\Consumptions-Data Flow\ODBC Source.Outputs[ODBC Source Output].Columns[hno]" />
-                        <inputColumn
-                          refId="Package\Sequence Container\Consumptions-Data Flow\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ssno]"
-                          cachedDataType="i8"
-                          cachedName="ssno"
-                          externalMetadataColumnId="Package\Sequence Container\Consumptions-Data Flow\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ssno]"
-                          lineageId="Package\Sequence Container\Consumptions-Data Flow\ODBC Source.Outputs[ODBC Source Output].Columns[ssno]" />
-                        <inputColumn
-                          refId="Package\Sequence Container\Consumptions-Data Flow\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[facility_id]"
-                          cachedDataType="i4"
-                          cachedName="facility_id"
-                          externalMetadataColumnId="Package\Sequence Container\Consumptions-Data Flow\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[facility_id]"
-                          lineageId="Package\Sequence Container\Consumptions-Data Flow\ODBC Source.Outputs[ODBC Source Output].Columns[facility_id]" />
-                        <inputColumn
-                          refId="Package\Sequence Container\Consumptions-Data Flow\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[createdAt]"
-                          cachedDataType="dbTimeStamp"
-                          cachedName="createdAt"
-                          externalMetadataColumnId="Package\Sequence Container\Consumptions-Data Flow\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[createdAt]"
-                          lineageId="Package\Sequence Container\Consumptions-Data Flow\ODBC Source.Outputs[ODBC Source Output].Columns[createdAt]" />
-                        <inputColumn
-                          refId="Package\Sequence Container\Consumptions-Data Flow\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[updatedAt]"
-                          cachedDataType="dbTimeStamp"
-                          cachedName="updatedAt"
-                          externalMetadataColumnId="Package\Sequence Container\Consumptions-Data Flow\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[updatedAt]"
-                          lineageId="Package\Sequence Container\Consumptions-Data Flow\ODBC Source.Outputs[ODBC Source Output].Columns[updatedAt]" />
-                      </inputColumns>
-                      <externalMetadataColumns
-                        isUsed="True">
-                        <externalMetadataColumn
-                          refId="Package\Sequence Container\Consumptions-Data Flow\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[id]"
-                          dataType="i4"
-                          name="id" />
-                        <externalMetadataColumn
-                          refId="Package\Sequence Container\Consumptions-Data Flow\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[date]"
-                          dataType="dbTimeStamp"
-                          name="date" />
-                        <externalMetadataColumn
-                          refId="Package\Sequence Container\Consumptions-Data Flow\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[active]"
-                          dataType="r8"
-                          name="active" />
-                        <externalMetadataColumn
-                          refId="Package\Sequence Container\Consumptions-Data Flow\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[inductive]"
-                          dataType="r8"
-                          name="inductive" />
-                        <externalMetadataColumn
-                          refId="Package\Sequence Container\Consumptions-Data Flow\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[capacitive]"
-                          dataType="r8"
-                          name="capacitive" />
-                        <externalMetadataColumn
-                          refId="Package\Sequence Container\Consumptions-Data Flow\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[hno]"
-                          dataType="i8"
-                          name="hno" />
-                        <externalMetadataColumn
-                          refId="Package\Sequence Container\Consumptions-Data Flow\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ssno]"
-                          dataType="i8"
-                          name="ssno" />
-                        <externalMetadataColumn
-                          refId="Package\Sequence Container\Consumptions-Data Flow\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[facility_id]"
-                          dataType="i4"
-                          name="facility_id" />
-                        <externalMetadataColumn
-                          refId="Package\Sequence Container\Consumptions-Data Flow\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[createdAt]"
-                          dataType="dbTimeStamp"
-                          name="createdAt" />
-                        <externalMetadataColumn
-                          refId="Package\Sequence Container\Consumptions-Data Flow\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[updatedAt]"
-                          dataType="dbTimeStamp"
-                          name="updatedAt" />
-                      </externalMetadataColumns>
-                    </input>
-                  </inputs>
-                  <outputs>
-                    <output
-                      refId="Package\Sequence Container\Consumptions-Data Flow\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
-                      exclusionGroup="1"
-                      isErrorOut="true"
-                      name="OLE DB Destination Error Output"
-                      synchronousInputId="Package\Sequence Container\Consumptions-Data Flow\OLE DB Destination.Inputs[OLE DB Destination Input]">
-                      <outputColumns>
-                        <outputColumn
-                          refId="Package\Sequence Container\Consumptions-Data Flow\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
-                          dataType="i4"
-                          lineageId="Package\Sequence Container\Consumptions-Data Flow\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
-                          name="ErrorCode"
-                          specialFlags="1" />
-                        <outputColumn
-                          refId="Package\Sequence Container\Consumptions-Data Flow\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
-                          dataType="i4"
-                          lineageId="Package\Sequence Container\Consumptions-Data Flow\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
-                          name="ErrorColumn"
-                          specialFlags="2" />
-                      </outputColumns>
-                      <externalMetadataColumns />
-                    </output>
-                  </outputs>
-                </component>
               </components>
               <paths>
                 <path
                   refId="Package\Sequence Container\Consumptions-Data Flow.Paths[Case 1]"
-                  endId="Package\Sequence Container\Consumptions-Data Flow\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  endId="Package\Sequence Container\Consumptions-Data Flow\ODBC Destination.Inputs[ODBC Destination Input]"
                   name="Case 1"
                   startId="Package\Sequence Container\Consumptions-Data Flow\Conditional Split.Outputs[Case 1]" />
                 <path
@@ -684,17 +702,17 @@
           DTS:refId="Package\Sequence Container\Execute SQL Task"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
-          DTS:DTSID="{a14033b7-ca05-42b2-a9ea-a893f9531e38}"
+          DTS:DTSID="{2F979A29-1500-4742-B5CE-6FBE79AFD6BF}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="Execute SQL Task"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="1">
+          DTS:ThreadHint="2">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
-              SQLTask:Connection="{95EAB25E-CC46-4DE8-B5BB-F7F9B86A7B17}"
-              SQLTask:SqlStatementSource="SELECT COALESCE(&#xA;    (SELECT MAX(createdAt) FROM consumptions),&#xA;    '1900-01-01') AS Maxdate"
+              SQLTask:Connection="{32F13487-DD52-42C6-BEC5-1A0F5E208D5F}"
+              SQLTask:SqlStatementSource="SELECT COALESCE(&#xA;    (SELECT TO_CHAR(MAX(createdat), 'MM/DD/YYYY HH:MI PM') FROM consumptions),&#xA;    '01/01/1900 12:00 AM') AS maxDate;"
               SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
               <SQLTask:ResultBinding
                 SQLTask:ResultName="maxDate"
@@ -703,7 +721,7 @@
                 SQLTask:ParameterName="1"
                 SQLTask:DtsVariableName="User::maxDate_cons"
                 SQLTask:ParameterDirection="Input"
-                SQLTask:DataType="7"
+                SQLTask:DataType="10"
                 SQLTask:ParameterSize="-1" />
             </SQLTask:SqlTaskData>
           </DTS:ObjectData>
@@ -712,7 +730,7 @@
           DTS:refId="Package\Sequence Container\Execute SQL Task 1"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
-          DTS:DTSID="{67c4deee-c45b-464d-b8ce-e8e15e21f087}"
+          DTS:DTSID="{69E3A6CF-84C5-48E4-B0DF-2131076AC5F1}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="Execute SQL Task 1"
@@ -721,8 +739,8 @@
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
-              SQLTask:Connection="{95EAB25E-CC46-4DE8-B5BB-F7F9B86A7B17}"
-              SQLTask:SqlStatementSource="SELECT COALESCE(&#xA;    (SELECT MAX(createdAt) FROM firm_list),&#xA;    '1900-01-01') AS Maxdate"
+              SQLTask:Connection="{DC1D3FD3-88EF-4A3F-96E8-4BF1C4456205}"
+              SQLTask:SqlStatementSource="SELECT COALESCE(&#xA;    (SELECT MAX(createdAt) FROM firm_list),&#xA;    '1900-01-01') AS maxDate"
               SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
               <SQLTask:ResultBinding
                 SQLTask:ResultName="maxDate"
@@ -731,7 +749,7 @@
                 SQLTask:ParameterName="1"
                 SQLTask:DtsVariableName="User::maxDate_firm"
                 SQLTask:ParameterDirection="Input"
-                SQLTask:DataType="7"
+                SQLTask:DataType="10"
                 SQLTask:ParameterSize="-1" />
             </SQLTask:SqlTaskData>
           </DTS:ObjectData>
@@ -740,17 +758,17 @@
           DTS:refId="Package\Sequence Container\Execute SQL Task 2"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
-          DTS:DTSID="{f5952f4e-1224-4b73-bf45-bb302fd61d97}"
+          DTS:DTSID="{CF4C94F1-E405-4926-BA87-245749893FBA}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="Execute SQL Task 2"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="2">
+          DTS:ThreadHint="1">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
-              SQLTask:Connection="{95EAB25E-CC46-4DE8-B5BB-F7F9B86A7B17}"
-              SQLTask:SqlStatementSource="SELECT COALESCE(&#xA;    (SELECT MAX(createdAt) FROM users),&#xA;    '1900-01-01') AS Maxdate"
+              SQLTask:Connection="{DC1D3FD3-88EF-4A3F-96E8-4BF1C4456205}"
+              SQLTask:SqlStatementSource="SELECT COALESCE(&#xA;    (SELECT MAX(createdat) FROM users),&#xA;    '1900-01-01') AS Maxdate"
               SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
               <SQLTask:ResultBinding
                 SQLTask:ResultName="maxDate"
@@ -758,8 +776,8 @@
               <SQLTask:ParameterBinding
                 SQLTask:ParameterName="1"
                 SQLTask:DtsVariableName="User::maxDate_user"
-                SQLTask:ParameterDirection="Input"
-                SQLTask:DataType="7"
+                SQLTask:ParameterDirection="ReturnValue"
+                SQLTask:DataType="10"
                 SQLTask:ParameterSize="-1" />
             </SQLTask:SqlTaskData>
           </DTS:ObjectData>
@@ -768,7 +786,7 @@
           DTS:refId="Package\Sequence Container\Firm_list - Data Flow"
           DTS:CreationName="Microsoft.Pipeline"
           DTS:Description="Data Flow Task"
-          DTS:DTSID="{8748b3c0-840f-40f4-b8f7-bc339721a6f5}"
+          DTS:DTSID="{22BB1BAB-C8DF-474B-9203-071528288270}"
           DTS:ExecutableType="Microsoft.Pipeline"
           DTS:LocaleID="-1"
           DTS:ObjectName="Firm_list - Data Flow"
@@ -1008,7 +1026,7 @@
                       dataType="System.String"
                       description="The name of the table to be fetched."
                       expressionType="Notify"
-                      name="TableName">"dbo"."firm_list"</property>
+                      name="TableName">"public"."firm_list"</property>
                     <property
                       dataType="System.Int32"
                       description="Specify the number of rows fetched per batch."
@@ -1053,8 +1071,8 @@
                   <connections>
                     <connection
                       refId="Package\Sequence Container\Firm_list - Data Flow\ODBC Destination.Connections[ODBCConnection]"
-                      connectionManagerID="{410B73E6-A923-4546-BE7E-7F1D47DEF045}:external"
-                      connectionManagerRefId="Project.ConnectionManagers[SQL-Edge-instance-2.sa]"
+                      connectionManagerID="{DC1D3FD3-88EF-4A3F-96E8-4BF1C4456205}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[Postgres-instance-1.pgadmin]"
                       description="The ODBC runtime connection used to access the database."
                       name="ODBCConnection" />
                   </connections>
@@ -1086,12 +1104,6 @@
                           externalMetadataColumnId="Package\Sequence Container\Firm_list - Data Flow\ODBC Destination.Inputs[ODBC Destination Input].ExternalColumns[meter_id]"
                           lineageId="Package\Sequence Container\Firm_list - Data Flow\ODBC Source.Outputs[ODBC Source Output].Columns[meter_id]" />
                         <inputColumn
-                          refId="Package\Sequence Container\Firm_list - Data Flow\ODBC Destination.Inputs[ODBC Destination Input].Columns[userId]"
-                          cachedDataType="i4"
-                          cachedName="userId"
-                          externalMetadataColumnId="Package\Sequence Container\Firm_list - Data Flow\ODBC Destination.Inputs[ODBC Destination Input].ExternalColumns[userId]"
-                          lineageId="Package\Sequence Container\Firm_list - Data Flow\ODBC Source.Outputs[ODBC Source Output].Columns[userId]" />
-                        <inputColumn
                           refId="Package\Sequence Container\Firm_list - Data Flow\ODBC Destination.Inputs[ODBC Destination Input].Columns[facility_id]"
                           cachedDataType="i8"
                           cachedName="facility_id"
@@ -1109,18 +1121,6 @@
                           cachedName="os_username"
                           externalMetadataColumnId="Package\Sequence Container\Firm_list - Data Flow\ODBC Destination.Inputs[ODBC Destination Input].ExternalColumns[os_username]"
                           lineageId="Package\Sequence Container\Firm_list - Data Flow\ODBC Source.Outputs[ODBC Source Output].Columns[os_username]" />
-                        <inputColumn
-                          refId="Package\Sequence Container\Firm_list - Data Flow\ODBC Destination.Inputs[ODBC Destination Input].Columns[createdAt]"
-                          cachedDataType="dbTimeStamp"
-                          cachedName="createdAt"
-                          externalMetadataColumnId="Package\Sequence Container\Firm_list - Data Flow\ODBC Destination.Inputs[ODBC Destination Input].ExternalColumns[createdAt]"
-                          lineageId="Package\Sequence Container\Firm_list - Data Flow\ODBC Source.Outputs[ODBC Source Output].Columns[createdAt]" />
-                        <inputColumn
-                          refId="Package\Sequence Container\Firm_list - Data Flow\ODBC Destination.Inputs[ODBC Destination Input].Columns[updatedAt]"
-                          cachedDataType="dbTimeStamp"
-                          cachedName="updatedAt"
-                          externalMetadataColumnId="Package\Sequence Container\Firm_list - Data Flow\ODBC Destination.Inputs[ODBC Destination Input].ExternalColumns[updatedAt]"
-                          lineageId="Package\Sequence Container\Firm_list - Data Flow\ODBC Source.Outputs[ODBC Source Output].Columns[updatedAt]" />
                         <inputColumn
                           refId="Package\Sequence Container\Firm_list - Data Flow\ODBC Destination.Inputs[ODBC Destination Input].Columns[Copy of city]"
                           cachedCodepage="1252"
@@ -1142,6 +1142,24 @@
                           cachedName="Copy of facility"
                           externalMetadataColumnId="Package\Sequence Container\Firm_list - Data Flow\ODBC Destination.Inputs[ODBC Destination Input].ExternalColumns[facility]"
                           lineageId="Package\Sequence Container\Firm_list - Data Flow\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of facility]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Firm_list - Data Flow\ODBC Destination.Inputs[ODBC Destination Input].Columns[userId]"
+                          cachedDataType="i4"
+                          cachedName="userId"
+                          externalMetadataColumnId="Package\Sequence Container\Firm_list - Data Flow\ODBC Destination.Inputs[ODBC Destination Input].ExternalColumns[userid]"
+                          lineageId="Package\Sequence Container\Firm_list - Data Flow\ODBC Source.Outputs[ODBC Source Output].Columns[userId]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Firm_list - Data Flow\ODBC Destination.Inputs[ODBC Destination Input].Columns[createdAt]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="createdAt"
+                          externalMetadataColumnId="Package\Sequence Container\Firm_list - Data Flow\ODBC Destination.Inputs[ODBC Destination Input].ExternalColumns[createdat]"
+                          lineageId="Package\Sequence Container\Firm_list - Data Flow\ODBC Source.Outputs[ODBC Source Output].Columns[createdAt]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Firm_list - Data Flow\ODBC Destination.Inputs[ODBC Destination Input].Columns[updatedAt]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="updatedAt"
+                          externalMetadataColumnId="Package\Sequence Container\Firm_list - Data Flow\ODBC Destination.Inputs[ODBC Destination Input].ExternalColumns[updatedat]"
+                          lineageId="Package\Sequence Container\Firm_list - Data Flow\ODBC Source.Outputs[ODBC Source Output].Columns[updatedAt]" />
                       </inputColumns>
                       <externalMetadataColumns
                         isUsed="True">
@@ -1155,27 +1173,20 @@
                           name="ssno" />
                         <externalMetadataColumn
                           refId="Package\Sequence Container\Firm_list - Data Flow\ODBC Destination.Inputs[ODBC Destination Input].ExternalColumns[city]"
-                          codePage="1252"
-                          dataType="text"
+                          dataType="nText"
                           name="city" />
                         <externalMetadataColumn
                           refId="Package\Sequence Container\Firm_list - Data Flow\ODBC Destination.Inputs[ODBC Destination Input].ExternalColumns[district]"
-                          codePage="1252"
-                          dataType="text"
+                          dataType="nText"
                           name="district" />
                         <externalMetadataColumn
                           refId="Package\Sequence Container\Firm_list - Data Flow\ODBC Destination.Inputs[ODBC Destination Input].ExternalColumns[facility]"
-                          codePage="1252"
-                          dataType="text"
+                          dataType="nText"
                           name="facility" />
                         <externalMetadataColumn
                           refId="Package\Sequence Container\Firm_list - Data Flow\ODBC Destination.Inputs[ODBC Destination Input].ExternalColumns[meter_id]"
                           dataType="i8"
                           name="meter_id" />
-                        <externalMetadataColumn
-                          refId="Package\Sequence Container\Firm_list - Data Flow\ODBC Destination.Inputs[ODBC Destination Input].ExternalColumns[userId]"
-                          dataType="i4"
-                          name="userId" />
                         <externalMetadataColumn
                           refId="Package\Sequence Container\Firm_list - Data Flow\ODBC Destination.Inputs[ODBC Destination Input].ExternalColumns[facility_id]"
                           dataType="i8"
@@ -1189,13 +1200,19 @@
                           dataType="i8"
                           name="os_username" />
                         <externalMetadataColumn
-                          refId="Package\Sequence Container\Firm_list - Data Flow\ODBC Destination.Inputs[ODBC Destination Input].ExternalColumns[createdAt]"
-                          dataType="dbTimeStamp"
-                          name="createdAt" />
+                          refId="Package\Sequence Container\Firm_list - Data Flow\ODBC Destination.Inputs[ODBC Destination Input].ExternalColumns[userid]"
+                          dataType="i4"
+                          name="userid" />
                         <externalMetadataColumn
-                          refId="Package\Sequence Container\Firm_list - Data Flow\ODBC Destination.Inputs[ODBC Destination Input].ExternalColumns[updatedAt]"
-                          dataType="dbTimeStamp"
-                          name="updatedAt" />
+                          refId="Package\Sequence Container\Firm_list - Data Flow\ODBC Destination.Inputs[ODBC Destination Input].ExternalColumns[createdat]"
+                          dataType="dbTimeStamp2"
+                          name="createdat"
+                          scale="6" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Firm_list - Data Flow\ODBC Destination.Inputs[ODBC Destination Input].ExternalColumns[updatedat]"
+                          dataType="dbTimeStamp2"
+                          name="updatedat"
+                          scale="6" />
                       </externalMetadataColumns>
                     </input>
                   </inputs>
@@ -1550,7 +1567,7 @@
           DTS:refId="Package\Sequence Container\Users - Data Flow"
           DTS:CreationName="Microsoft.Pipeline"
           DTS:Description="Data Flow Task"
-          DTS:DTSID="{2c28aaf3-3cfc-4d94-8a57-20a846c35dde}"
+          DTS:DTSID="{517B6CD5-7D78-4D27-8F77-AEFCE0E7E4DE}"
           DTS:ExecutableType="Microsoft.Pipeline"
           DTS:LocaleID="-1"
           DTS:ObjectName="Users - Data Flow"
@@ -1824,7 +1841,7 @@
                       dataType="System.String"
                       description="The name of the table to be fetched."
                       expressionType="Notify"
-                      name="TableName">"dbo"."users"</property>
+                      name="TableName">"public"."users"</property>
                     <property
                       dataType="System.Int32"
                       description="Specify the number of rows fetched per batch."
@@ -1869,8 +1886,8 @@
                   <connections>
                     <connection
                       refId="Package\Sequence Container\Users - Data Flow\ODBC Destination.Connections[ODBCConnection]"
-                      connectionManagerID="{410B73E6-A923-4546-BE7E-7F1D47DEF045}:external"
-                      connectionManagerRefId="Project.ConnectionManagers[SQL-Edge-instance-2.sa]"
+                      connectionManagerID="{DC1D3FD3-88EF-4A3F-96E8-4BF1C4456205}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[Postgres-instance-1.pgadmin]"
                       description="The ODBC runtime connection used to access the database."
                       name="ODBCConnection" />
                   </connections>
@@ -1928,13 +1945,13 @@
                           refId="Package\Sequence Container\Users - Data Flow\ODBC Destination.Inputs[ODBC Destination Input].Columns[createdAt]"
                           cachedDataType="dbTimeStamp"
                           cachedName="createdAt"
-                          externalMetadataColumnId="Package\Sequence Container\Users - Data Flow\ODBC Destination.Inputs[ODBC Destination Input].ExternalColumns[createdAt]"
+                          externalMetadataColumnId="Package\Sequence Container\Users - Data Flow\ODBC Destination.Inputs[ODBC Destination Input].ExternalColumns[createdat]"
                           lineageId="Package\Sequence Container\Users - Data Flow\ODBC Source.Outputs[ODBC Source Output].Columns[createdAt]" />
                         <inputColumn
                           refId="Package\Sequence Container\Users - Data Flow\ODBC Destination.Inputs[ODBC Destination Input].Columns[updatedAt]"
                           cachedDataType="dbTimeStamp"
                           cachedName="updatedAt"
-                          externalMetadataColumnId="Package\Sequence Container\Users - Data Flow\ODBC Destination.Inputs[ODBC Destination Input].ExternalColumns[updatedAt]"
+                          externalMetadataColumnId="Package\Sequence Container\Users - Data Flow\ODBC Destination.Inputs[ODBC Destination Input].ExternalColumns[updatedat]"
                           lineageId="Package\Sequence Container\Users - Data Flow\ODBC Source.Outputs[ODBC Source Output].Columns[updatedAt]" />
                       </inputColumns>
                       <externalMetadataColumns
@@ -1945,42 +1962,39 @@
                           name="id" />
                         <externalMetadataColumn
                           refId="Package\Sequence Container\Users - Data Flow\ODBC Destination.Inputs[ODBC Destination Input].ExternalColumns[uuid]"
-                          codePage="1252"
-                          dataType="str"
+                          dataType="wstr"
                           length="255"
                           name="uuid" />
                         <externalMetadataColumn
                           refId="Package\Sequence Container\Users - Data Flow\ODBC Destination.Inputs[ODBC Destination Input].ExternalColumns[name]"
-                          codePage="1252"
-                          dataType="str"
+                          dataType="wstr"
                           length="255"
                           name="name" />
                         <externalMetadataColumn
                           refId="Package\Sequence Container\Users - Data Flow\ODBC Destination.Inputs[ODBC Destination Input].ExternalColumns[email]"
-                          codePage="1252"
-                          dataType="str"
+                          dataType="wstr"
                           length="255"
                           name="email" />
                         <externalMetadataColumn
                           refId="Package\Sequence Container\Users - Data Flow\ODBC Destination.Inputs[ODBC Destination Input].ExternalColumns[password]"
-                          codePage="1252"
-                          dataType="str"
+                          dataType="wstr"
                           length="255"
                           name="password" />
                         <externalMetadataColumn
                           refId="Package\Sequence Container\Users - Data Flow\ODBC Destination.Inputs[ODBC Destination Input].ExternalColumns[role]"
-                          codePage="1252"
-                          dataType="str"
+                          dataType="wstr"
                           length="255"
                           name="role" />
                         <externalMetadataColumn
-                          refId="Package\Sequence Container\Users - Data Flow\ODBC Destination.Inputs[ODBC Destination Input].ExternalColumns[createdAt]"
-                          dataType="dbTimeStamp"
-                          name="createdAt" />
+                          refId="Package\Sequence Container\Users - Data Flow\ODBC Destination.Inputs[ODBC Destination Input].ExternalColumns[createdat]"
+                          dataType="dbTimeStamp2"
+                          name="createdat"
+                          scale="6" />
                         <externalMetadataColumn
-                          refId="Package\Sequence Container\Users - Data Flow\ODBC Destination.Inputs[ODBC Destination Input].ExternalColumns[updatedAt]"
-                          dataType="dbTimeStamp"
-                          name="updatedAt" />
+                          refId="Package\Sequence Container\Users - Data Flow\ODBC Destination.Inputs[ODBC Destination Input].ExternalColumns[updatedat]"
+                          dataType="dbTimeStamp2"
+                          name="updatedat"
+                          scale="6" />
                       </externalMetadataColumns>
                     </input>
                   </inputs>
@@ -2287,7 +2301,7 @@
         <DTS:PrecedenceConstraint
           DTS:refId="Package\Sequence Container.PrecedenceConstraints[Constraint]"
           DTS:CreationName=""
-          DTS:DTSID="{684c18dd-120e-447e-8593-07ca89fc7ddf}"
+          DTS:DTSID="{9746E351-B1EE-4958-913D-89A511310CBE}"
           DTS:From="Package\Sequence Container\Execute SQL Task"
           DTS:LogicalAnd="True"
           DTS:ObjectName="Constraint"
@@ -2295,7 +2309,7 @@
         <DTS:PrecedenceConstraint
           DTS:refId="Package\Sequence Container.PrecedenceConstraints[Constraint 1]"
           DTS:CreationName=""
-          DTS:DTSID="{c0268416-7a36-407a-887b-54dfcf7ec75a}"
+          DTS:DTSID="{58C36180-FB25-4E7B-AD7B-37CF9E113EAE}"
           DTS:From="Package\Sequence Container\Execute SQL Task 1"
           DTS:LogicalAnd="True"
           DTS:ObjectName="Constraint 1"
@@ -2303,7 +2317,7 @@
         <DTS:PrecedenceConstraint
           DTS:refId="Package\Sequence Container.PrecedenceConstraints[Constraint 2]"
           DTS:CreationName=""
-          DTS:DTSID="{371274c4-44a1-44dc-88a9-ca448870749d}"
+          DTS:DTSID="{778CB80A-4AE9-4CA4-94D0-1D751D59E2E4}"
           DTS:From="Package\Sequence Container\Execute SQL Task 2"
           DTS:LogicalAnd="True"
           DTS:ObjectName="Constraint 2"
@@ -2311,16 +2325,6 @@
       </DTS:PrecedenceConstraints>
     </DTS:Executable>
   </DTS:Executables>
-  <DTS:PrecedenceConstraints>
-    <DTS:PrecedenceConstraint
-      DTS:refId="Package.PrecedenceConstraints[Constraint]"
-      DTS:CreationName=""
-      DTS:DTSID="{aeb131af-b3b6-4583-8677-dbbf7ddd8c88}"
-      DTS:From="Package\Sequence Container"
-      DTS:LogicalAnd="True"
-      DTS:ObjectName="Constraint"
-      DTS:To="Package\Execute SQL Task" />
-  </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
 <!--If you manually edit this section and make a mistake, you can delete it. -->
@@ -2336,23 +2340,31 @@
         <NodeLayout
           Size="170,42"
           Id="Package\Execute SQL Task"
-          TopLeft="308,359" />
+          TopLeft="794,358" />
         <NodeLayout
           Size="202,42"
           Id="Package\Sequence Container\Consumptions-Data Flow"
           TopLeft="10.5,117" />
         <NodeLayout
-          Size="167,42"
-          Id="Package\Sequence Container\Users - Data Flow"
-          TopLeft="506.5,109" />
-        <NodeLayout
           Size="170,42"
           Id="Package\Sequence Container\Execute SQL Task"
           TopLeft="5.5,23" />
         <NodeLayout
-          Size="170,42"
+          Size="179,42"
+          Id="Package\Sequence Container\Execute SQL Task 1"
+          TopLeft="263.5,23" />
+        <NodeLayout
+          Size="179,42"
           Id="Package\Sequence Container\Execute SQL Task 2"
-          TopLeft="501.5,15" />
+          TopLeft="494.5,22" />
+        <NodeLayout
+          Size="180,42"
+          Id="Package\Sequence Container\Firm_list - Data Flow"
+          TopLeft="264.5,117" />
+        <NodeLayout
+          Size="167,42"
+          Id="Package\Sequence Container\Users - Data Flow"
+          TopLeft="496.5,114" />
         <EdgeLayout
           Id="Package\Sequence Container.PrecedenceConstraints[Constraint]"
           TopLeft="90.5,65">
@@ -2388,34 +2400,8 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Sequence Container.PrecedenceConstraints[Constraint 2]"
-          TopLeft="588.25,57">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,52"
-              Start="0,0"
-              End="0,44.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,44.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="180,42"
-          Id="Package\Sequence Container\Firm_list - Data Flow"
-          TopLeft="261.5,124" />
-        <EdgeLayout
           Id="Package\Sequence Container.PrecedenceConstraints[Constraint 1]"
-          TopLeft="348.75,72">
+          TopLeft="353.75,65">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -2435,51 +2421,39 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="179,42"
-          Id="Package\Sequence Container\Execute SQL Task 1"
-          TopLeft="256.5,30" />
+        <EdgeLayout
+          Id="Package\Sequence Container.PrecedenceConstraints[Constraint 2]"
+          TopLeft="582,64">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,50"
+              Start="0,0"
+              End="0,42.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,42.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
           PanelSize="676,221"
           Size="676,264"
           Id="Package\Sequence Container"
-          TopLeft="149,46" />
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="487,310">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-94,49"
-              Start="0,0"
-              End="-94,41.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,20.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,20.5"
-                    Point2="0,24.5"
-                    Point3="-4,24.5" />
-                  <mssgle:LineSegment
-                    End="-90,24.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-90,24.5"
-                    Point2="-94,24.5"
-                    Point3="-94,28.5" />
-                  <mssgle:LineSegment
-                    End="-94,41.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+          TopLeft="309,57" />
+        <NodeLayout
+          Size="179,42"
+          Id="Package\Execute SQL Task 1"
+          TopLeft="56,102" />
       </GraphLayout>
     </LayoutInfo>
   </Package>
@@ -2489,13 +2463,17 @@
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
+          Size="149,42"
+          Id="Package\Sequence Container\Consumptions-Data Flow\ODBC Source"
+          TopLeft="103,20" />
+        <NodeLayout
           Size="159,42"
           Id="Package\Sequence Container\Consumptions-Data Flow\Conditional Split"
           TopLeft="62,114" />
         <NodeLayout
-          Size="149,42"
-          Id="Package\Sequence Container\Consumptions-Data Flow\ODBC Source"
-          TopLeft="103,20" />
+          Size="169,42"
+          Id="Package\Sequence Container\Consumptions-Data Flow\ODBC Destination"
+          TopLeft="40,193" />
         <EdgeLayout
           Id="Package\Sequence Container\Consumptions-Data Flow.Paths[ODBC Source Output]"
           TopLeft="177.5,62">
@@ -2527,16 +2505,100 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="177,42"
-          Id="Package\Sequence Container\Consumptions-Data Flow\OLE DB Destination"
-          TopLeft="28,202" />
         <EdgeLayout
           Id="Package\Sequence Container\Consumptions-Data Flow.Paths[Case 1]"
           TopLeft="141.5,156">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-17,37"
+              Start="0,0"
+              End="-17,29.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,14.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,14.5"
+                    Point2="0,18.5"
+                    Point3="-4,18.5" />
+                  <mssgle:LineSegment
+                    End="-13,18.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-13,18.5"
+                    Point2="-17,18.5"
+                    Point3="-17,22.5" />
+                  <mssgle:LineSegment
+                    End="-17,29.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-23.7180859375,23.5,30.436171875,9.5537109375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Sequence Container\Consumptions-Data Flow\ODBC Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Sequence Container\Consumptions-Data Flow\ODBC Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Sequence Container\Firm_list - Data Flow">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="169,42"
+          Id="Package\Sequence Container\Firm_list - Data Flow\ODBC Destination"
+          TopLeft="302,276" />
+        <NodeLayout
+          Size="159,42"
+          Id="Package\Sequence Container\Firm_list - Data Flow\Conditional Split 1"
+          TopLeft="319,114" />
+        <NodeLayout
+          Size="149,42"
+          Id="Package\Sequence Container\Firm_list - Data Flow\ODBC Source"
+          TopLeft="321,19" />
+        <NodeLayout
+          Size="161,42"
+          Id="Package\Sequence Container\Firm_list - Data Flow\Data Conversion"
+          TopLeft="331,188" />
+        <EdgeLayout
+          Id="Package\Sequence Container\Firm_list - Data Flow.Paths[Data Conversion Output]"
+          TopLeft="411.5,230">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -2566,39 +2628,10 @@
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-27.7180859375,28,30.436171875,9.5537109375"
+              BoundingBox="0,0,0,0"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\Sequence Container\Consumptions-Data Flow\ODBC Source">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <TaskHost
-    design-time-name="Package\Sequence Container\Firm_list - Data Flow">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
-        <NodeLayout
-          Size="161,42"
-          Id="Package\Sequence Container\Firm_list - Data Flow\Data Conversion"
-          TopLeft="331,188" />
-        <NodeLayout
-          Size="159,42"
-          Id="Package\Sequence Container\Firm_list - Data Flow\Conditional Split 1"
-          TopLeft="319,114" />
         <EdgeLayout
           Id="Package\Sequence Container\Firm_list - Data Flow.Paths[Case 1]"
           TopLeft="398.5,156">
@@ -2635,10 +2668,6 @@
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="149,42"
-          Id="Package\Sequence Container\Firm_list - Data Flow\ODBC Source"
-          TopLeft="321,19" />
         <EdgeLayout
           Id="Package\Sequence Container\Firm_list - Data Flow.Paths[ODBC Source Output]"
           TopLeft="397,61">
@@ -2658,22 +2687,70 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Sequence Container\Firm_list - Data Flow\ODBC Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Sequence Container\Firm_list - Data Flow\ODBC Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Sequence Container\Users - Data Flow">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="149,42"
+          Id="Package\Sequence Container\Users - Data Flow\ODBC Source"
+          TopLeft="572,26" />
+        <NodeLayout
+          Size="159,42"
+          Id="Package\Sequence Container\Users - Data Flow\Conditional Split 2"
+          TopLeft="576,114" />
         <NodeLayout
           Size="169,42"
-          Id="Package\Sequence Container\Firm_list - Data Flow\ODBC Destination"
-          TopLeft="302,276" />
+          Id="Package\Sequence Container\Users - Data Flow\ODBC Destination"
+          TopLeft="578,296" />
+        <NodeLayout
+          Size="170,42"
+          Id="Package\Sequence Container\Users - Data Flow\Data Conversion 1"
+          TopLeft="580,200" />
         <EdgeLayout
-          Id="Package\Sequence Container\Firm_list - Data Flow.Paths[Data Conversion Output]"
-          TopLeft="411.5,230">
+          Id="Package\Sequence Container\Users - Data Flow.Paths[ODBC Source Output]"
+          TopLeft="646.5,68">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-25,46"
+              EndConnector="9,46"
               Start="0,0"
-              End="-25,38.5">
+              End="9,38.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -2682,39 +2759,49 @@
                   <mssgle:CubicBezierSegment
                     Point1="0,19"
                     Point2="0,23"
-                    Point3="-4,23" />
+                    Point3="4,23" />
                   <mssgle:LineSegment
-                    End="-21,23" />
+                    End="5,23" />
                   <mssgle:CubicBezierSegment
-                    Point1="-21,23"
-                    Point2="-25,23"
-                    Point3="-25,27" />
+                    Point1="5,23"
+                    Point2="9,23"
+                    Point3="9,27" />
                   <mssgle:LineSegment
-                    End="-25,38.5" />
+                    End="9,38.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <TaskHost
-    design-time-name="Package\Sequence Container\Users - Data Flow">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
-        <NodeLayout
-          Size="170,42"
-          Id="Package\Sequence Container\Users - Data Flow\Data Conversion 1"
-          TopLeft="580,200" />
-        <NodeLayout
-          Size="159,42"
-          Id="Package\Sequence Container\Users - Data Flow\Conditional Split 2"
-          TopLeft="576,114" />
+        <EdgeLayout
+          Id="Package\Sequence Container\Users - Data Flow.Paths[Data Conversion Output]"
+          TopLeft="663.75,242">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,54"
+              Start="0,0"
+              End="0,46.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,46.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\Sequence Container\Users - Data Flow.Paths[Case 1]"
           TopLeft="655.5,156">
@@ -2751,111 +2838,9 @@
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="149,42"
-          Id="Package\Sequence Container\Users - Data Flow\ODBC Source"
-          TopLeft="572,26" />
-        <NodeLayout
-          Size="169,42"
-          Id="Package\Sequence Container\Users - Data Flow\ODBC Destination"
-          TopLeft="622,310" />
-        <EdgeLayout
-          Id="Package\Sequence Container\Users - Data Flow.Paths[ODBC Source Output]"
-          TopLeft="646.5,68">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="9,46"
-              Start="0,0"
-              End="9,38.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,19" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,19"
-                    Point2="0,23"
-                    Point3="4,23" />
-                  <mssgle:LineSegment
-                    End="5,23" />
-                  <mssgle:CubicBezierSegment
-                    Point1="5,23"
-                    Point2="9,23"
-                    Point3="9,27" />
-                  <mssgle:LineSegment
-                    End="9,38.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Sequence Container\Users - Data Flow.Paths[Data Conversion Output]"
-          TopLeft="665,242">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="41.5,68"
-              Start="0,0"
-              End="41.5,60.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,30" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,30"
-                    Point2="0,34"
-                    Point3="4,34" />
-                  <mssgle:LineSegment
-                    End="37.5,34" />
-                  <mssgle:CubicBezierSegment
-                    Point1="37.5,34"
-                    Point2="41.5,34"
-                    Point3="41.5,38" />
-                  <mssgle:LineSegment
-                    End="41.5,60.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\Sequence Container\Firm_list - Data Flow\ODBC Source">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Sequence Container\Firm_list - Data Flow\ODBC Destination">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Sequence Container\Users - Data Flow\ODBC Source">
     <Properties>
@@ -2871,19 +2856,6 @@
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Sequence Container\Users - Data Flow\ODBC Destination">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Sequence Container\Consumptions-Data Flow\OLE DB Destination">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>

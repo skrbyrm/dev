@@ -1,0 +1,14 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="Postgres-instance-1.pgadmin 1"
+  DTS:DTSID="{87ACB0C5-0F70-4589-8D77-1DFD8D1F848F}"
+  DTS:CreationName="ADO.NET:System.Data.Odbc.OdbcConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectionString="uid=pgadmin;Dsn=Postgres-instance-1;">
+      <DTS:Password
+        DTS:Name="pwd"
+        Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAUVRSxBlQakasShcXb35GdgAAAAACAAAAAAAQZgAAAAEAACAAAAB7x6q2syIqhelrg+XnfACWIf4JhpEn9pCR6dujSQ1WAgAAAAAOgAAAAAIAACAAAAB+Zw5KEw0Paphxv2EHwtA94OzUr1oYIMWjAVQbEyBKKoAAAABUbCDw3YlZfH6U58+aSQf8qbwQCxDRmvPHR2duLT5lYvcejjwLDb+oM+jzUUEG5JmtyaHvyxadzdc0Y7lSLqXV8VbI6WALUKzb67CSsewP8oJSszaDWOJ2s8lsnObrkFtvMTjYaVYtLF9gBk2OVvfwGAz8Zs+Gm/BdVaMbxIqW90AAAAAmqXpJuGmKI0W/mxonhXUJZu0Si0Oh8wOeKIM3zQJ3HqggFbzNkrjZM87ox2EHNBBVa5pzBMe0uJ6giw5+/sN5</DTS:Password>
+    </DTS:ConnectionManager>
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

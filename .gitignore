@@ -9,3 +9,18 @@
 /10.Python-Web-Scraping/list/clklist.xlsx
 /10.Python-Web-Scraping/list/.ipynb_checkpoints
 
+/2.MySQL/.env
+/3.PhpMyAdmin/.env
+/4.PostgreSQL/.env
+/6.SQL-Server/.env
+
+/9.SSIS/MySQL-to-SQLServer/.vs
+
+/0.Terraform/.env/*
+/0.Terraform/up-instances/.terraform/*
+/0.Terraform/up-instances/.terraform.lock.hcl
+/0.Terraform/up-instances/terraform.tfstate
+
+/0.Terraform/add_firewall/.terraform/*
+/0.Terraform/add_firewall/.terraform.lock.hcl
+/0.Terraform/add_firewall/terraform.tfstate

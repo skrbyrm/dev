@@ -1,14 +1,19 @@
 <?xml version="1.0"?>
 <BuildLog xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <ProjectInfo>
-    <Name>PostgreSQL-to-SQLServer</Name>
-    <LastWriteTime>2023-05-22T19:37:21.508Z</LastWriteTime>
+    <Name>MySQL-to-SQLServer</Name>
+    <LastWriteTime>2023-05-25T17:12:05.8080311Z</LastWriteTime>
     <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
   </ProjectInfo>
   <LastBuildInfos>
     <ProjectBuildItemInfo>
-      <Name>Package.dtsx</Name>
-      <LastWriteTime>2023-05-22T20:10:10.523Z</LastWriteTime>
+      <Name>MySQL_to_SQLServer.dtsx</Name>
+      <LastWriteTime>2023-05-27T14:48:07.0092484Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>MySQL_to_PstgreSQL.dtsx</Name>
+      <LastWriteTime>2023-05-25T17:25:27.8501053Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
   </LastBuildInfos>

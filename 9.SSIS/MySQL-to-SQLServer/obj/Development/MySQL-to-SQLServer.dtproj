@@ -26,7 +26,7 @@
           <SSIS:Property SSIS:Name="CreatorComputerName">KUASAR</SSIS:Property>
           <SSIS:Property SSIS:Name="Description">
           </SSIS:Property>
-          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAUVRSxBlQakasShcXb35GdgAAAAACAAAAAAAQZgAAAAEAACAAAADhaQQWpFB/Rj8bx3itlskpbAemIQn4+GH8qTuNJoJdFQAAAAAOgAAAAAIAACAAAABn+ehC8/iM/8RMRvSaZT3EmIGEoLYlTncRcGek5fj/GZAAAACExx7sL13nyXVHoKxA/suwta6AbG3rdQzoJaLVQHs/B8CBqfyCqbPwQr7MmJkog/V9s8nPZGZ5J05hOPjmojCBKfMzYM3QF4rRvNAOEiDsvdK3H1p5HmkLrDeVGte4PwgYETRc6enX5cjnaytUdEka6/jVZv2CShO0ojQFDw6lN8SU/eBq4VPRNDH/gcDajqBAAAAADmUfRl8SslGlXtHJcKxy3D0hcwzW+68VyXdZaT/MlaSYHjC4jv0AbUua90IrGP41Ki0TgyQZ0NHF2JnBw3kTKw==</SSIS:Property>
+          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAUVRSxBlQakasShcXb35GdgAAAAACAAAAAAAQZgAAAAEAACAAAAARn5qV2pDcOVei8INAgDX5FWMtqQL61tSm1QmQJoERkAAAAAAOgAAAAAIAACAAAABI6Jmlgq5NgIFjFGNB0NBxs11B3EKCj2HT7reg76i+jZAAAACZIkwffi1iR3Ol/XBlUmwGEUoho4T+HCsx1JyLoo095CRSIzJD5KvLPUZtBsWTkCw1Z/gE3SlCV2TXufOUPa9pYEvAFKeh7/2K5VlsnW/8wimVE3xWlJLR1aUTdkqCNaHfnWuUifaxmDvidnlODuA2lrm24lzxP+0+mIdq0L3D+xLts3YA4/ljvO2CARR2/qlAAAAAnqu72t1sR8B3le4nGdXDnQYKOcrbxXIqk+YoAkS5YEc5FbQYMnNIc4qGL5gpDj9Iw5maFoREKtf3vlu9LVh5Rg==</SSIS:Property>
           <SSIS:Property SSIS:Name="FormatVersion">1</SSIS:Property>
         </SSIS:Properties>
         <SSIS:Packages>
@@ -170,7 +170,7 @@
                 <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                 <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                 <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="Value">uid=sa;Dsn=SQL-Edge-instance-2;</SSIS:Property>
+                <SSIS:Property SSIS:Name="Value">uid=sa;Dsn=SQL-Edge-instance-1;</SSIS:Property>
                 <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
@@ -374,7 +374,7 @@
                 <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                 <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                 <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="Value">Data Source=instance-2,31200;User ID=sa;Initial Catalog=cons;Provider=MSOLEDBSQL.1;Application Name=SSIS-PostgreSQL-to-SQLServer-{95EAB25E-CC46-4DE8-B5BB-F7F9B86A7B17}instance-2,31200.cons.sa;Auto Translate=False;</SSIS:Property>
+                <SSIS:Property SSIS:Name="Value">Data Source=instance-1,31200;User ID=sa;Initial Catalog=cons;Provider=MSOLEDBSQL.1;Auto Translate=False;Application Name=SSIS-PostgreSQL-to-SQLServer-{95EAB25E-CC46-4DE8-B5BB-F7F9B86A7B17}instance-2,31200.cons.sa;</SSIS:Property>
                 <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
@@ -478,7 +478,7 @@
                 <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                 <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                 <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="Value">instance-2,31200</SSIS:Property>
+                <SSIS:Property SSIS:Name="Value">instance-1,31200</SSIS:Property>
                 <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
@@ -622,10 +622,10 @@
                 <SSIS:Property SSIS:Name="Name">MySQL_to_SQLServer</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">21</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">24</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{502DB235-30CD-427F-89C7-523FA96A837A}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{B662AA87-0E32-462F-AC83-A5154EC7A1DE}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>
@@ -757,10 +757,10 @@
                 <SSIS:Property SSIS:Name="Name">MySQL_to_PstgreSQL</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">40</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">46</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{83F69E45-52EE-4921-8F5A-F32D5739165B}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{33653E39-EE76-4D32-AA31-D73DB8908797}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>

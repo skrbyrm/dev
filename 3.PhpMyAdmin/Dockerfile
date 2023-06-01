@@ -1,11 +1,6 @@
-FROM phpmyadmin/phpmyadmin
-
-ENV PMA_HOST=10.101.99.126 \
-    PMA_PORT=3306
+FROM arm64v8/phpmyadmin
 
 EXPOSE 80
 
-# Optionally, add a health check here
-
-# If you need to use an imagePullSecret, uncomment the line below
-# ADD my-registry-key /root/.docker/config.json
+# docker build -t my-phpmyadmin .
+# docker run --env-file .env -d -p 3000:80 --name phpmyadmin-container my-phpmyadmin
